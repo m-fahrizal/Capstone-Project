@@ -29,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
 
         binding.buttonLogin.setOnClickListener {
             val email = binding.edEmail.text.toString()
-            val password = binding.edPassword.text.toString()
+            val password = binding.edtPass.text.toString()
 
             // validasi email
             if (email.isEmpty()) {

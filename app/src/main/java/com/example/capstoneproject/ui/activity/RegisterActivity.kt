@@ -29,7 +29,7 @@ class RegisterActivity : AppCompatActivity() {
         binding.buttonRegister.setOnClickListener {
             val username = binding.edName.text.toString()
             val email = binding.edEmail.text.toString()
-            val password = binding.edPassword.text.toString()
+            val password = binding.edtPass.text.toString()
             val phoneNumber = binding.edPhone.text.toString()
 
             // validasi username
