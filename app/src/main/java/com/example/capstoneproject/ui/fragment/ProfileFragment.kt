@@ -8,12 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import com.example.capstoneproject.data.User
+import com.example.capstoneproject.data.model.User
 import com.example.capstoneproject.databinding.FragmentProfileBinding
 import com.example.capstoneproject.ui.activity.FaqActivity
 import com.example.capstoneproject.ui.activity.GuideActivity
 import com.example.capstoneproject.ui.activity.LoginActivity
-import com.example.capstoneproject.ui.activity.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
@@ -91,5 +90,6 @@ class ProfileFragment : Fragment() {
         val intent = Intent(requireContext(), LoginActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
+        activity?.finish()
     }
 }

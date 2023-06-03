@@ -34,24 +34,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerText" />
 
-    <EditText
-        android:id="@+id/edName"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layName"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
+        android:layout_marginTop="10dp"
         android:background="@drawable/bg_input"
-        android:drawableLeft="@drawable/ic_name"
-        android:drawablePadding="10dp"
-        android:paddingLeft="13dp"
-        android:paddingTop="13dp"
-        android:paddingBottom="13dp"
-        android:inputType="textPersonName"
-        android:hint="@string/masukkan_nama"
-        android:textSize="16sp"
+        android:ems="10"
+        android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userText" />
+        app:layout_constraintTop_toBottomOf="@+id/userText" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="@string/masukkan_nama"
+            android:drawableStart="@drawable/ic_name"
+            android:drawablePadding="15dp"
+            android:paddingRight="13dp"
+            android:paddingLeft="13dp"
+            android:paddingTop="19dp"
+            android:paddingBottom="13dp"
+            android:textSize="16sp"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/phoneNumber"
@@ -64,26 +74,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edName" />
+        app:layout_constraintTop_toBottomOf="@+id/layName" />
 
-    <EditText
-        android:id="@+id/edPhone"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layPhone"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
+        android:layout_marginTop="10dp"
         android:background="@drawable/bg_input"
-        android:drawableLeft="@drawable/ic_name"
-        android:drawablePadding="10dp"
-        android:paddingLeft="13dp"
-        android:paddingTop="13dp"
-        android:paddingBottom="13dp"
-        android:inputType="textPersonName"
-        android:hint="@string/phone"
-        android:textSize="16sp"
+        android:ems="10"
+        android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumber" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="@string/phone"
+            android:drawableStart="@drawable/ic_name"
+            android:drawablePadding="15dp"
+            android:paddingRight="13dp"
+            android:paddingLeft="13dp"
+            android:paddingTop="19dp"
+            android:paddingBottom="13dp"
+            android:textSize="16sp"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/emailText"
@@ -96,27 +116,50 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.139"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edPhone" />
+        app:layout_constraintTop_toBottomOf="@+id/layPhone" />
 
-    <EditText
-        android:id="@+id/edEmail"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layEmail"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/bg_input"
-        android:drawableLeft="@drawable/ic_email"
-        android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="@string/masukkan_email"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="13dp"
-        android:paddingTop="13dp"
-        android:paddingBottom="13dp"
-        android:textSize="16sp"
+        android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailText" />
+        app:layout_constraintTop_toBottomOf="@+id/emailText" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="@string/masukkan_email"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="15dp"
+            android:paddingRight="13dp"
+            android:paddingLeft="13dp"
+            android:paddingTop="19dp"
+            android:paddingBottom="13dp"
+            android:textSize="16sp"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/passText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppinsbold"
+        android:text="@string/password"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/layEmail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/layEmail"
+        app:layout_constraintTop_toBottomOf="@+id/layEmail" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edPassword"
@@ -148,19 +191,6 @@
             />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/passText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/poppinsbold"
-        android:text="@string/password"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/edEmail"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/edEmail"
-        app:layout_constraintTop_toBottomOf="@+id/edEmail" />
 
     <Button
         android:id="@+id/buttonRegister"

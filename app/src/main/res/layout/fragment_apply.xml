@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragment.ApplyFragment">
 
     <LinearLayout
@@ -30,8 +31,7 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="31dp"
-            android:textSize="14dp"
-            android:inputType="number"
+            android:textSize="14sp"
             />
 
         <EditText
@@ -45,9 +45,10 @@
             android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/bg_input"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:padding="12dp"
-            />
+            android:inputType="number"
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -57,7 +58,7 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
 
         <EditText
@@ -71,10 +72,10 @@
             android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/bg_input"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:padding="12dp"
             android:inputType="number"
-            />
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -84,7 +85,7 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
 
         <EditText
@@ -98,10 +99,10 @@
             android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/bg_input"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:padding="12dp"
             android:inputType="number"
-            />
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -125,9 +126,10 @@
             android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/bg_input"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:padding="12dp"
-            />
+            android:inputType="textPersonName"
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -137,30 +139,24 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
-        
-        <RadioGroup
-            android:id="@+id/radioGender"
-            android:layout_width="wrap_content"
+
+        <EditText
+            android:id="@+id/edGender"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="47dp">
-
-            <RadioButton
-                android:id="@+id/radioMale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/laki_laki"
-                android:layout_marginEnd="50dp"/>
-
-            <RadioButton
-                android:id="@+id/radioFemale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/perempuan"/>
-
-        </RadioGroup>
+            android:hint="@string/inputGender"
+            android:fontFamily="@font/opensansreguler"
+            android:textColor="@color/black"
+            android:layout_marginStart="47dp"
+            android:layout_marginEnd="47dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/bg_input"
+            android:textSize="14sp"
+            android:padding="12dp"
+            android:inputType="text"
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -170,7 +166,7 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
 
         <EditText
@@ -184,9 +180,10 @@
             android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/bg_input"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:padding="12dp"
-            />
+            android:inputType="text"
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -196,7 +193,7 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
 
         <EditText
@@ -210,9 +207,10 @@
             android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/bg_input"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:padding="12dp"
-            />
+            android:inputType="date"
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -222,7 +220,7 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
 
         <EditText
@@ -236,9 +234,10 @@
             android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/bg_input"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:padding="12dp"
-            />
+            android:inputType="textPersonName"
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -248,7 +247,7 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
 
         <EditText
@@ -262,9 +261,10 @@
             android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/bg_input"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:padding="12dp"
-            />
+            android:inputType="text"
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -274,7 +274,7 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
 
         <EditText
@@ -288,9 +288,10 @@
             android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/bg_input"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:padding="12dp"
-            />
+            android:inputType="number"
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -300,7 +301,7 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
 
         <EditText
@@ -314,9 +315,10 @@
             android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/bg_input"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:padding="12dp"
-            />
+            android:inputType="text"
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -326,7 +328,7 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
 
         <EditText
@@ -340,10 +342,10 @@
             android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/bg_input"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:padding="12dp"
             android:inputType="number"
-            />
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -353,30 +355,24 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
 
-        <RadioGroup
-            android:id="@+id/radioPT"
-            android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/edCollege"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="47dp">
-
-            <RadioButton
-                android:id="@+id/radioPTN"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/PTN"
-                android:layout_marginEnd="50dp"/>
-
-            <RadioButton
-                android:id="@+id/radioPTS"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/PTS"/>
-
-        </RadioGroup>
+            android:hint="@string/inputCollege"
+            android:fontFamily="@font/opensansreguler"
+            android:textColor="@color/black"
+            android:layout_marginStart="47dp"
+            android:layout_marginEnd="47dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/bg_input"
+            android:textSize="14sp"
+            android:padding="12dp"
+            android:inputType="text"
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -386,7 +382,7 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
 
         <RadioGroup
@@ -419,7 +415,7 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
 
         <EditText
@@ -433,9 +429,10 @@
             android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/bg_input"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:padding="12dp"
-            />
+            android:inputType="text"
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -445,7 +442,7 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
 
         <EditText
@@ -459,9 +456,10 @@
             android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/bg_input"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:padding="12dp"
-            />
+            android:inputType="text"
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -471,7 +469,7 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
 
         <EditText
@@ -485,9 +483,10 @@
             android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/bg_input"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:padding="12dp"
-            />
+            android:inputType="text"
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -497,7 +496,7 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
 
         <EditText
@@ -511,9 +510,10 @@
             android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/bg_input"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:padding="12dp"
-            />
+            android:inputType="number"
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -523,7 +523,7 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
 
         <EditText
@@ -537,9 +537,10 @@
             android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/bg_input"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:padding="12dp"
-            />
+            android:inputType="number"
+            android:autofillHints="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -549,7 +550,7 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
 
         <EditText
@@ -563,9 +564,10 @@
             android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/bg_input"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:padding="12dp"
-            />
+            android:autofillHints=""
+            android:inputType="numberDecimal" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -575,16 +577,27 @@
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             />
 
         <com.example.capstoneproject.ui.custom.PhotoButton
+            android:id="@+id/galleryButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/upload_file"
             android:layout_marginStart="45dp"
             android:textSize="10sp"
-            />
+            tools:ignore="SmallSp" />
+
+        <ImageView
+            android:id="@+id/previewImageView"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="8dp"
+            app:srcCompat="@drawable/ic_place_holder"
+            android:contentDescription="@string/image" />
 
         <Button
             android:id="@+id/btn_apply"

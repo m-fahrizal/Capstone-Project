@@ -5,8 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
-import androidx.annotation.NonNull
-import com.example.capstoneproject.data.User
+import com.example.capstoneproject.data.model.User
 import com.example.capstoneproject.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*

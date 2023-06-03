@@ -1,4 +1,4 @@
-package com.example.capstoneproject.data
+package com.example.capstoneproject.data.model
 
 data class User(
     var name: String = "",
