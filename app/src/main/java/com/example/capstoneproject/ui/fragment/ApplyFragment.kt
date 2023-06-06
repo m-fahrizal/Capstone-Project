@@ -3,26 +3,22 @@ package com.example.capstoneproject.ui.fragment
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.content.Intent.ACTION_GET_CONTENT
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import com.example.capstoneproject.R
 import com.example.capstoneproject.data.create.ApplyPresenter
 import com.example.capstoneproject.data.utils.uriToFile
 import com.example.capstoneproject.databinding.FragmentApplyBinding
-import com.example.capstoneproject.databinding.FragmentProfileBinding
 import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 
 class ApplyFragment : Fragment() {
@@ -50,7 +46,7 @@ class ApplyFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentApplyBinding.inflate(inflater, container, false)
         return binding.root
@@ -61,51 +57,64 @@ class ApplyFragment : Fragment() {
         val btnApply = binding.btnApply
         binding.galleryButton.setOnClickListener { startGallery() }
 
-        btnApply.setOnClickListener{
+        btnApply.setOnClickListener {
 //            it.findNavController().navigate(R.id.UploadFragment)
-            val edNIK = binding.edNIK.text.toString()
-            val edNISN = binding.edNISN.text.toString()
-            val edNPSN = binding.edNPSN.text.toString()
-            val edName = binding.edfullname.text.toString()
-            val edGender = binding.edGender.text.toString()
-            val edTempatLahir = binding.edTempatLahir.text.toString()
-            val edTglLahir = binding.edTglLahir.text.toString()
-            val edMom = binding.edMom.text.toString()
-            val edAddress = binding.edAddress.text.toString()
-            val edPostCode = binding.edPosCode.text.toString()
-            val edReligion = binding.edReligion.text.toString()
-            val edCollege = binding.edCollege.text.toString()
-            val radioPrestasi = binding.radioPrestasi.toString()
-            val edUniv = binding.edUniv.text.toString()
-            val edJurusan = binding.edJurusan.text.toString()
-            val edJenjang = binding.edJenjang.text.toString()
-            val edSemester = binding.edSemester.text.toString()
-            val edUkt = binding.edUkt.text.toString()
-            val edIpk = binding.edIpk.text.toString()
-            val fotoRumah = getFile
+            if (getFile != null) {
+                val nik = "${binding.edNIK.text}".toRequestBody("text/plain".toMediaType())
+                val nisn = "${binding.edNISN.text}".toRequestBody("text/plain".toMediaType())
+                val npsn = "${binding.edNPSN.text}".toRequestBody("text/plain".toMediaType())
+                val name = "${binding.edfullname.text}".toRequestBody("text/plain".toMediaType())
+                val gender = "${binding.edGender.text}".toRequestBody("text/plain".toMediaType())
+                val tempatLahir =
+                    "${binding.edTempatLahir.text}".toRequestBody("text/plain".toMediaType())
+                val tglLahir =
+                    "${binding.edTglLahir.text}".toRequestBody("text/plain".toMediaType())
+                val mom = "${binding.edMom.text}".toRequestBody("text/plain".toMediaType())
+                val address = "${binding.edAddress.text}".toRequestBody("text/plain".toMediaType())
+                val posCode = "${binding.edPosCode.text}".toRequestBody("text/plain".toMediaType())
+                val religion =
+                    "${binding.edReligion.text}".toRequestBody("text/plain".toMediaType())
+                val salary = "${binding.edSalary.text}".toRequestBody("text/plain".toMediaType())
+                val school = "${binding.edSchool.text}".toRequestBody("text/plain".toMediaType())
+                val schoolStatus =
+                    "${binding.edSchoolStatus.text}".toRequestBody("text/plain".toMediaType())
+                val prestasi =
+                    "${binding.rgPrestasi.checkedRadioButtonId}".toRequestBody("text/plain".toMediaType())
+                val nilai = "${binding.edNilai.text}".toRequestBody("text/plain".toMediaType())
+                val statusKip =
+                    "${binding.rgStatusKip.checkedRadioButtonId}".toRequestBody("text/plain".toMediaType())
+                val statusRumah =
+                    "${binding.edStatusRumah.text}".toRequestBody("text/plain".toMediaType())
+                val file = getFile as File
+                val fotoRumah = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+                val imgmultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
+                    "photo",
+                    file.name,
+                    fotoRumah
+                )
 
-            applyPresenter?.postData(
-                edNIK.toInt(),
-                edNISN.toInt(),
-                edNPSN.toInt(),
-                edName,
-                edGender,
-                edTempatLahir,
-                edTglLahir,
-                edMom,
-                edAddress,
-                edPostCode.toInt(),
-                edReligion,
-                edCollege,
-                radioPrestasi.toBoolean(),
-                edUniv,
-                edJurusan,
-                edJenjang,
-                edSemester.toInt(),
-                edUkt.toInt(),
-                edIpk.toFloat(),
-                fotoRumah!!
-            )
+                applyPresenter?.postData(
+                    nik,
+                    nisn,
+                    npsn,
+                    name,
+                    gender,
+                    tempatLahir,
+                    tglLahir,
+                    mom,
+                    address,
+                    posCode,
+                    religion,
+                    salary,
+                    school,
+                    schoolStatus,
+                    prestasi,
+                    nilai,
+                    statusKip,
+                    statusRumah,
+                    imgmultipart
+                )
+            }
         }
 
         applyPresenter = ApplyPresenter(this)

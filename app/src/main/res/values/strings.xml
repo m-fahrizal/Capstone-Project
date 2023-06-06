@@ -63,11 +63,11 @@
     <string name="inputReligion">Masukkan Agama</string>
     <string name="salary">Gaji Orang Tua</string>
     <string name="inputSalary">Contoh : <b>5000000 (tanpa titik)</b></string>
-    <string name="PT">Perguruan Tinggi</string>
+    <string name="asal_sekolah">Asal Sekolah</string>
     <string name="PTN">PTN</string>
     <string name="PTS">PTS</string>
-    <string name="univ">Nama Universitas</string>
-    <string name="inputUniv">Masukkan Nama Universitas</string>
+    <string name="nilai_ujian">Nilai</string>
+    <string name="inputRumah">Contoh : <b>Milik Sendiri/Sewa/Numpang</b></string>
     <string name="jurusan">Jurusan</string>
     <string name="inputJurusan">Masukkan Jurusan</string>
     <string name="jenjang">Jenjang</string>
@@ -112,6 +112,11 @@
     <string name="noHP">No Handphone</string>
     <string name="image">image</string>
     <string name="inputGender">Contoh : <b>L/P</b></string>
-    <string name="inputCollege">Contoh : <b>PTN/PTS</b></string>
+    <string name="inputCollege">Contoh : <b>SMAN 4 Jakarta</b></string>
+    <string name="status_sekolah">Status Sekolah</string>
+    <string name="inputSchoolStatus">Contoh : <b>Negeri/Swasta</b></string>
+    <string name="status_kip">Sudah Punya KIP</string>
+    <string name="status_rumah">Status Rumah</string>
+    <string name="inputNilai">Rata-rata nilai <b>Ujian Sekolah/Rapot</b></string>
 
 </resources>

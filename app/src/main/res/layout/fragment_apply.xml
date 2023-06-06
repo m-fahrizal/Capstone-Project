@@ -350,7 +350,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/PT"
+            android:text="@string/asal_sekolah"
             android:fontFamily="@font/opensansreguler"
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
@@ -359,10 +359,37 @@
             />
 
         <EditText
-            android:id="@+id/edCollege"
+            android:id="@+id/edSchool"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/inputCollege"
+            android:fontFamily="@font/opensansreguler"
+            android:textColor="@color/black"
+            android:layout_marginStart="47dp"
+            android:layout_marginEnd="47dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/bg_input"
+            android:textSize="14sp"
+            android:padding="12dp"
+            android:inputType="text"
+            android:autofillHints="" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/status_sekolah"
+            android:fontFamily="@font/opensansreguler"
+            android:textColor="@color/black"
+            android:layout_marginStart="47dp"
+            android:layout_marginTop="8dp"
+            android:textSize="14sp"
+            />
+
+        <EditText
+            android:id="@+id/edSchoolStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/inputSchoolStatus"
             android:fontFamily="@font/opensansreguler"
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
@@ -386,7 +413,7 @@
             />
 
         <RadioGroup
-            android:id="@+id/radioPrestasi"
+            android:id="@+id/rgPrestasi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -410,7 +437,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/univ"
+            android:text="@string/nilai_ujian"
             android:fontFamily="@font/opensansreguler"
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
@@ -419,10 +446,70 @@
             />
 
         <EditText
-            android:id="@+id/edUniv"
+            android:id="@+id/edNilai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/inputUniv"
+            android:hint="@string/inputNilai"
+            android:fontFamily="@font/opensansreguler"
+            android:textColor="@color/black"
+            android:layout_marginStart="47dp"
+            android:layout_marginEnd="47dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/bg_input"
+            android:textSize="14sp"
+            android:padding="12dp"
+            android:inputType="numberDecimal"
+            android:autofillHints="" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/status_kip"
+            android:fontFamily="@font/opensansreguler"
+            android:textColor="@color/black"
+            android:layout_marginStart="47dp"
+            android:layout_marginTop="8dp"
+            android:textSize="14sp"
+            />
+
+        <RadioGroup
+            android:id="@+id/rgStatusKip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="47dp">
+
+            <RadioButton
+                android:id="@+id/haveKip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/yes"
+                android:layout_marginEnd="50dp"/>
+
+            <RadioButton
+                android:id="@+id/noKip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no"/>
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/status_rumah"
+            android:fontFamily="@font/opensansreguler"
+            android:textColor="@color/black"
+            android:layout_marginStart="47dp"
+            android:layout_marginTop="8dp"
+            android:textSize="14sp"
+            />
+
+        <EditText
+            android:id="@+id/edStatusRumah"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/inputRumah"
             android:fontFamily="@font/opensansreguler"
             android:textColor="@color/black"
             android:layout_marginStart="47dp"
@@ -433,141 +520,6 @@
             android:padding="12dp"
             android:inputType="text"
             android:autofillHints="" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/jurusan"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
-            android:layout_marginStart="47dp"
-            android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
-
-        <EditText
-            android:id="@+id/edJurusan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/inputJurusan"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
-            android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
-            android:layout_marginTop="3dp"
-            android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
-            android:inputType="text"
-            android:autofillHints="" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/jenjang"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
-            android:layout_marginStart="47dp"
-            android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
-
-        <EditText
-            android:id="@+id/edJenjang"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/inputJenjang"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
-            android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
-            android:layout_marginTop="3dp"
-            android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
-            android:inputType="text"
-            android:autofillHints="" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/semester"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
-            android:layout_marginStart="47dp"
-            android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
-
-        <EditText
-            android:id="@+id/edSemester"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/inputSemester"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
-            android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
-            android:layout_marginTop="3dp"
-            android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
-            android:inputType="number"
-            android:autofillHints="" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ukt"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
-            android:layout_marginStart="47dp"
-            android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
-
-        <EditText
-            android:id="@+id/edUkt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/inputUkt"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
-            android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
-            android:layout_marginTop="3dp"
-            android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
-            android:inputType="number"
-            android:autofillHints="" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ipk"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
-            android:layout_marginStart="47dp"
-            android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
-
-        <EditText
-            android:id="@+id/edIpk"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/inputIpk"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
-            android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
-            android:layout_marginTop="3dp"
-            android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
-            android:autofillHints=""
-            android:inputType="numberDecimal" />
 
         <TextView
             android:layout_width="wrap_content"
