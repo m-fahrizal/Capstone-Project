@@ -505,21 +505,33 @@
             android:textSize="14sp"
             />
 
-        <EditText
-            android:id="@+id/edStatusRumah"
-            android:layout_width="match_parent"
+        <RadioGroup
+            android:id="@+id/rgStatusRumah"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/inputRumah"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
-            android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
-            android:layout_marginTop="3dp"
-            android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
-            android:inputType="text"
-            android:autofillHints="" />
+            android:orientation="vertical"
+            android:layout_marginStart="47dp">
+
+            <RadioButton
+                android:id="@+id/sendiri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sewa"
+                />
+
+            <RadioButton
+                android:id="@+id/sewa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sendiri"/>
+
+            <RadioButton
+                android:id="@+id/numpang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/numpang"/>
+
+        </RadioGroup>
 
         <TextView
             android:layout_width="wrap_content"

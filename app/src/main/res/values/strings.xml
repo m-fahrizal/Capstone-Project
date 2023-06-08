@@ -118,5 +118,8 @@
     <string name="status_kip">Sudah Punya KIP</string>
     <string name="status_rumah">Status Rumah</string>
     <string name="inputNilai">Rata-rata nilai <b>Ujian Sekolah/Rapot</b></string>
+    <string name="sendiri">Milik Sendiri</string>
+    <string name="sewa">Sewa</string>
+    <string name="numpang">Numpang</string>
 
 </resources>

@@ -76,6 +76,6 @@ data class KIPResponseItem(
 	@field:SerializedName("status_rumah")
 	val statusRumah: String? = null,
 
-	@field:SerializedName("foto_rumah")
-	val fotoRumah: MultipartBody? = null,
+//	@field:SerializedName("foto_rumah")
+//	val fotoRumah: MultipartBody? = null
 )

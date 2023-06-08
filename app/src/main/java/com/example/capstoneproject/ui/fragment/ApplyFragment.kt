@@ -8,7 +8,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RadioButton
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
@@ -25,11 +24,9 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
 
-
 class ApplyFragment : Fragment() {
     private lateinit var binding: FragmentApplyBinding
     private var getFile: File? = null
-    private var radioButtonChecked: RadioButton? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,7 +44,7 @@ class ApplyFragment : Fragment() {
 
 
         btnApply.setOnClickListener {
-            Log.d("tes", btnApply.toString())
+//            Log.d("tes", btnApply.toString())
             postData()
 //            it.findNavController().navigate(R.id.UploadFragment)
 //            val rgPrestasi = binding.rgPrestasi.checkedRadioButtonId
@@ -98,27 +95,19 @@ class ApplyFragment : Fragment() {
             val npsn = "${binding.edNPSN.text}".toRequestBody("text/plain".toMediaType())
             val name = "${binding.edfullname.text}".toRequestBody("text/plain".toMediaType())
             val gender = "${binding.edGender.text}".toRequestBody("text/plain".toMediaType())
-            val tempatLahir =
-                "${binding.edTempatLahir.text}".toRequestBody("text/plain".toMediaType())
-            val tglLahir =
-                "${binding.edTglLahir.text}".toRequestBody("text/plain".toMediaType())
+            val tempatLahir = "${binding.edTempatLahir.text}".toRequestBody("text/plain".toMediaType())
+            val tglLahir = "${binding.edTglLahir.text}".toRequestBody("text/plain".toMediaType())
             val mom = "${binding.edMom.text}".toRequestBody("text/plain".toMediaType())
             val address = "${binding.edAddress.text}".toRequestBody("text/plain".toMediaType())
             val posCode = "${binding.edPosCode.text}".toRequestBody("text/plain".toMediaType())
-            val religion =
-                "${binding.edReligion.text}".toRequestBody("text/plain".toMediaType())
+            val religion = "${binding.edReligion.text}".toRequestBody("text/plain".toMediaType())
             val salary = "${binding.edSalary.text}".toRequestBody("text/plain".toMediaType())
             val school = "${binding.edSchool.text}".toRequestBody("text/plain".toMediaType())
-            val schoolStatus =
-                "${binding.edSchoolStatus.text}".toRequestBody("text/plain".toMediaType())
-
+            val schoolStatus = "${binding.edSchoolStatus.text}".toRequestBody("text/plain".toMediaType())
             val prestasi = isPunyaPrestasi(binding).toRequestBody("text/plain".toMediaType())
             val nilai = "${binding.edNilai.text}".toRequestBody("text/plain".toMediaType())
-
             val statusKip = isPunyaKIP(binding).toRequestBody("text/plain".toMediaType())
-
-            val statusRumah =
-                "${binding.edStatusRumah.text}".toRequestBody("text/plain".toMediaType())
+            val statusRumah = checkStatusRumah(binding).toRequestBody("text/plain".toMediaType())
             val requestImageFile = file.asRequestBody("image/jpeg".toMediaType())
             val fotoRumah: MultipartBody.Part = MultipartBody.Part.createFormData(
                 "photo",
@@ -145,7 +134,7 @@ class ApplyFragment : Fragment() {
                 nilai,
                 statusKip,
                 statusRumah,
-                fotoRumah
+//                fotoRumah
             )
             uploadDataRequest.enqueue(object : Callback<KIPResponse> {
                 override fun onResponse(
@@ -156,6 +145,7 @@ class ApplyFragment : Fragment() {
                         val responseBody = response.body()
                         if (responseBody != null && !responseBody.error) {
                             Toast.makeText(requireContext(), responseBody.message, Toast.LENGTH_SHORT).show()
+                            Log.d("tes", uploadDataRequest.toString())
                         }
                     } else {
                         Toast.makeText(requireContext(), response.message(), Toast.LENGTH_SHORT).show()
@@ -163,6 +153,8 @@ class ApplyFragment : Fragment() {
                 }
                 override fun onFailure(call: Call<KIPResponse>, t: Throwable) {
                     Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
+                    Log.d("tes", uploadDataRequest.toString())
+                    Log.d("msg", t.message.toString())
                 }
             })
         } else {
@@ -188,23 +180,37 @@ class ApplyFragment : Fragment() {
     }
 
     private fun isPunyaPrestasi(binding:FragmentApplyBinding): String {
-        var value: String = ""
+        var value = ""
         if (binding.havePrestasi.isChecked){
             value = "1"
         }
-        else if(binding.noPrestasi.isChecked){
+        if(binding.noPrestasi.isChecked){
             value = "0"
         }
         return value
     }
 
     private fun isPunyaKIP(binding:FragmentApplyBinding): String {
-        var value: String = ""
+        var value = ""
         if (binding.haveKip.isChecked){
             value = "1"
         }
-        else if(binding.noKip.isChecked){
+        if(binding.noKip.isChecked){
             value = "0"
+        }
+        return value
+    }
+
+    private fun checkStatusRumah(binding:FragmentApplyBinding): String {
+        var value = ""
+        if (binding.sewa.isChecked){
+            value = "1"
+        }
+        if(binding.sendiri.isChecked){
+            value = "2"
+        }
+        if(binding.numpang.isChecked){
+            value = "3"
         }
         return value
     }

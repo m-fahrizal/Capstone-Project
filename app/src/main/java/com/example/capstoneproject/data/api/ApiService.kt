@@ -50,7 +50,7 @@ interface ApiService {
         @Part ("nilai_ujian") nilaiUjian: RequestBody,
         @Part ("status_kip") statusKip: RequestBody,
         @Part ("status_rumah") statusRumah: RequestBody,
-        @Part fotoRumah: MultipartBody.Part
+//        @Part fotoRumah: MultipartBody.Part
     ) : Call<KIPResponse>
 
     @FormUrlEncoded
