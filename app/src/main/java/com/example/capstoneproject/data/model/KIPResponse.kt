@@ -13,6 +13,9 @@ data class KIPResponse(
 	@field:SerializedName("message")
 	val message: String? = null,
 
+	@field:SerializedName("error")
+	val error: Boolean,
+
 	@field:SerializedName("status")
 	val status: Int? = null
 )

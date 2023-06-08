@@ -1,5 +1,6 @@
 package com.example.capstoneproject.ui.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,10 +21,7 @@ class HomeFragment : Fragment() {
     private lateinit var reference: DatabaseReference
     private lateinit var userID: String
     private lateinit var name: String
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private lateinit var database: FirebaseDatabase
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,28 +33,35 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // Inisialisasi Firebase
+        database = FirebaseDatabase.getInstance()
+        val user = FirebaseAuth.getInstance().currentUser
 
-        user = FirebaseAuth.getInstance().currentUser!!
-        userID = user.uid
-        reference = FirebaseDatabase.getInstance("https://capstone-project-3480d-default-rtdb.firebaseio.com/")
-            .getReference("Users")
-            .child(userID)
+        if (user != null) {
+            userID = user.uid
+            reference = FirebaseDatabase.getInstance("https://capstone-project-3480d-default-rtdb.firebaseio.com/")
+                .getReference("Users")
+                .child(userID)
 
-        greeting = binding.greetings
-        reference.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val userGreeting = snapshot.getValue(User::class.java)
+            greeting = binding.greetings
+            reference.addValueEventListener(object : ValueEventListener {
+                @SuppressLint("SetTextI18n")
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val userGreeting = snapshot.getValue(User::class.java)
 
-                if (userGreeting != null) {
-                    name = userGreeting.name
-                    greeting.text = "Hi, $name"
+                    if (userGreeting != null) {
+                        name = userGreeting.name
+                        greeting.text = "Hi, $name"
+                    }
                 }
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(activity, "Something went wrong", Toast.LENGTH_LONG).show()
-            }
-        })
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(activity, "Something went wrong", Toast.LENGTH_LONG).show()
+                }
+            })
+        }
+
+
 
         var g = 0
         val exProsedur = binding.exProsedur
@@ -91,5 +96,18 @@ class HomeFragment : Fragment() {
                 exKeunggulan.collapse()
             }
         }
+    }
+    private fun saveSession(userId: String, username: String) {
+        val user = HashMap<String, Any>()
+        user["userId"] = userId
+        user["username"] = username
+
+        reference.child(userId).setValue(user)
+            .addOnSuccessListener {
+                Toast.makeText(requireContext(),"Data berhasil disimpan", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(requireContext(),"Data berhasil disimpan", Toast.LENGTH_SHORT).show()
+            }
     }
 }

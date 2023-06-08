@@ -1,5 +1,7 @@
 package com.example.capstoneproject.ui.fragment
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import com.example.capstoneproject.data.model.User
+import com.example.capstoneproject.data.utils.Preferences
 import com.example.capstoneproject.databinding.FragmentProfileBinding
 import com.example.capstoneproject.ui.activity.FaqActivity
 import com.example.capstoneproject.ui.activity.GuideActivity
@@ -24,10 +27,8 @@ class ProfileFragment : Fragment() {
     private lateinit var reference: DatabaseReference
     private lateinit var userID: String
     private lateinit var name: String
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private lateinit var context: Context
+    private lateinit var pref: Preferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,32 +41,37 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        context = requireContext()
+        pref = Preferences(context)
+
         val lyLogout = binding.lyButton
         lyLogout.setOnClickListener{
             intentLogout()
         }
+        val user = FirebaseAuth.getInstance().currentUser
 
-        user = FirebaseAuth.getInstance().currentUser!!
-        userID = user.uid
-        reference = FirebaseDatabase.getInstance("https://capstone-project-3480d-default-rtdb.firebaseio.com/")
-            .getReference("Users")
-            .child(userID)
+        if (user != null) {
+            userID = user.uid
+            reference = FirebaseDatabase.getInstance("https://capstone-project-3480d-default-rtdb.firebaseio.com/")
+                .getReference("Users")
+                .child(userID)
 
-        greeting = binding.username
-        reference.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val userGreeting = snapshot.getValue(User::class.java)
+            reference.addValueEventListener(object : ValueEventListener {
+                @SuppressLint("SetTextI18n")
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val userGreeting = snapshot.getValue(User::class.java)
 
-                if (userGreeting != null) {
-                    name = userGreeting.name
-                    greeting.text = "$name"
+                    if (userGreeting != null) {
+                        name = userGreeting.name
+                        greeting.text = "Hi, $name"
+                    }
                 }
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(activity, "Something went wrong", Toast.LENGTH_LONG).show()
-            }
-        })
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(activity, "Something went wrong", Toast.LENGTH_LONG).show()
+                }
+            })
+        }
 
         val lyPanduan = binding.lyPanduan
         lyPanduan.setOnClickListener{
@@ -87,6 +93,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun intentLogout() {
+        pref.prefClear()
         val intent = Intent(requireContext(), LoginActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
