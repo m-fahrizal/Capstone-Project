@@ -44,13 +44,8 @@ class ApplyFragment : Fragment() {
 
 
         btnApply.setOnClickListener {
-//            Log.d("tes", btnApply.toString())
             postData()
 //            it.findNavController().navigate(R.id.UploadFragment)
-//            val rgPrestasi = binding.rgPrestasi.checkedRadioButtonId
-//            val havePrestasi = binding.havePrestasi.isChecked.toString()
-//            var prestasi = rgPrestasi
-
         }
     }
 
@@ -66,30 +61,6 @@ class ApplyFragment : Fragment() {
         if (getFile != null) {
             val file = reduceFileImage(getFile as File)
 
-//            val nik = binding.edNIK.text.toString().trim()
-//            val nisn = binding.edNISN.text.toString().trim()
-//            val npsn = binding.edNPSN.text.toString().trim()
-//            val name = binding.edfullname.text.toString().trim()
-//            val gender = binding.edGender.text.toString().trim()
-//            val tempatLahir = binding.edTempatLahir.text.toString().trim()
-//            val tglLahir = binding.edTglLahir.text.toString().trim()
-//            val mom = binding.edMom.text.toString().trim()
-//            val address = binding.edAddress.text.toString().trim()
-//            val posCode = binding.edPosCode.text.toString().trim()
-//            val religion = binding.edReligion.text.toString().trim()
-//            val salary = binding.edSalary.text.toString().trim()
-//            val school = binding.edSchool.text.toString().trim()
-//            val schoolStatus = binding.edSchoolStatus.text.toString().trim()
-//            val prestasi = binding.rgPrestasi.toString().trim()
-//            val nilai = binding.edNilai.text.toString().trim()
-//            val statusKip = binding.rgStatusKip.toString().trim()
-//            val statusRumah = binding.edStatusRumah.toString().trim()
-//            val requestImageFile = file.asRequestBody("image/jpeg".toMediaType())
-//            val fotoRumah: MultipartBody.Part = createFormData(
-//                "photo",
-//                file.name,
-//                requestImageFile
-//            )
             val nik = "${binding.edNIK.text}".toRequestBody("text/plain".toMediaType())
             val nisn = "${binding.edNISN.text}".toRequestBody("text/plain".toMediaType())
             val npsn = "${binding.edNPSN.text}".toRequestBody("text/plain".toMediaType())

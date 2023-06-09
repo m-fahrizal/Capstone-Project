@@ -1,16 +1,14 @@
 package com.example.capstoneproject.ui.fragment
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import com.example.capstoneproject.data.model.User
+import androidx.fragment.app.Fragment
 import com.example.capstoneproject.data.utils.Preferences
 import com.example.capstoneproject.databinding.FragmentProfileBinding
 import com.example.capstoneproject.ui.activity.FaqActivity

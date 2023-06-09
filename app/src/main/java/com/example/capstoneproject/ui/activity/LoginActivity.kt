@@ -91,16 +91,6 @@ class LoginActivity : AppCompatActivity() {
                     }
 
                 })
-
-//                auth.signInWithEmailAndPassword(email, password)
-//                    .addOnCompleteListener(this) {
-//                        if (it.isSuccessful) {
-//                            Toast.makeText(this, "Login berhasil!", Toast.LENGTH_SHORT).show()
-//                            intentMain()
-//                        } else {
-//                            Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
-//                        }
-//                    }
             }
         }
     }
