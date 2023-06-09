@@ -110,7 +110,7 @@ class ApplyFragment : Fragment() {
             val statusRumah = checkStatusRumah(binding).toRequestBody("text/plain".toMediaType())
             val requestImageFile = file.asRequestBody("image/jpeg".toMediaType())
             val fotoRumah: MultipartBody.Part = MultipartBody.Part.createFormData(
-                "photo",
+                "foto_rumah",
                 file.name,
                 requestImageFile
             )
@@ -134,7 +134,7 @@ class ApplyFragment : Fragment() {
                 nilai,
                 statusKip,
                 statusRumah,
-//                fotoRumah
+                fotoRumah
             )
             uploadDataRequest.enqueue(object : Callback<KIPResponse> {
                 override fun onResponse(

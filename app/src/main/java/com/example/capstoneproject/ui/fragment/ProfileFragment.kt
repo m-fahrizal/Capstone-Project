@@ -57,14 +57,8 @@ class ProfileFragment : Fragment() {
                 .child(userID)
 
             reference.addValueEventListener(object : ValueEventListener {
-                @SuppressLint("SetTextI18n")
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    val userGreeting = snapshot.getValue(User::class.java)
 
-                    if (userGreeting != null) {
-                        name = userGreeting.name
-                        greeting.text = "Hi, $name"
-                    }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
