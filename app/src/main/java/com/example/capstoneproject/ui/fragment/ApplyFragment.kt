@@ -17,8 +17,10 @@ import com.example.capstoneproject.data.utils.uriToFile
 import com.example.capstoneproject.databinding.FragmentApplyBinding
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -45,6 +47,7 @@ class ApplyFragment : Fragment() {
 
         btnApply.setOnClickListener {
             postData()
+//            postML()
 //            it.findNavController().navigate(R.id.UploadFragment)
         }
     }
@@ -116,22 +119,73 @@ class ApplyFragment : Fragment() {
                         val responseBody = response.body()
                         if (responseBody != null && !responseBody.error) {
                             Toast.makeText(requireContext(), responseBody.message, Toast.LENGTH_SHORT).show()
-                            Log.d("tes", uploadDataRequest.toString())
                         }
+                        val data = customJsonify("${responseBody!!.data}")
+                        val jsonObject = JSONObject(data)
+                        println(responseBody)
+                        println(jsonObject.get("foto_rumah"))
                     } else {
                         Toast.makeText(requireContext(), response.message(), Toast.LENGTH_SHORT).show()
+                        println(response)
+                        println(response.body())
                     }
                 }
                 override fun onFailure(call: Call<KIPResponse>, t: Throwable) {
                     Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
-                    Log.d("tes", uploadDataRequest.toString())
-                    Log.d("msg", t.message.toString())
                 }
             })
         } else {
             Toast.makeText(requireContext(), "Silakan masukkan berkas gambar terlebih dahulu.", Toast.LENGTH_SHORT).show()
         }
     }
+
+//    private fun postML() {
+//        if (getFile != null) {
+//            val file = reduceFileImage(getFile as File)
+//
+//            val prestasi = isPunyaPrestasi(binding).toRequestBody("text/plain".toMediaType())
+//            val nilai = "${binding.edNilai.text}".toRequestBody("text/plain".toMediaType())
+//            val salary = "${binding.edSalary.text}".toRequestBody("text/plain".toMediaType())
+//            val statusKip = isPunyaKIP(binding).toRequestBody("text/plain".toMediaType())
+//            val statusRumah = checkStatusRumah(binding).toRequestBody("text/plain".toMediaType())
+//            val requestImageFile = file.asRequestBody("image/jpeg".toMediaType())
+//            val fotoRumah: MultipartBody.Part = MultipartBody.Part.createFormData(
+//                "foto_rumah",
+//                file.name,
+//                requestImageFile
+//            )
+//            val MLService = MLConfig().getMLService()
+//            val uploadDataRequest = MLService.postML(
+//                prestasi,
+//                nilai,
+//                salary,
+//                statusKip,
+//                statusRumah,
+//                fotoRumah
+//            )
+//            uploadDataRequest.enqueue(object : Callback<MLResponse> {
+//                override fun onResponse(
+//                    call: Call<MLResponse>,
+//                    response: Response<MLResponse>
+//                ) {
+//                    if (response.isSuccessful) {
+//                        val responseBody = response.body()
+//                        if (responseBody != null && !responseBody.error) {
+//                            Toast.makeText(requireContext(), responseBody.message, Toast.LENGTH_SHORT).show()
+//                        }
+//                    } else {
+//                        Toast.makeText(requireContext(), response.message(), Toast.LENGTH_SHORT).show()
+//                    }
+//                }
+//                override fun onFailure(call: Call<MLResponse>, t: Throwable) {
+//                    Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
+//                }
+//            })
+//        } else {
+//            Toast.makeText(requireContext(), "Silakan masukkan berkas gambar terlebih dahulu.", Toast.LENGTH_SHORT).show()
+//        }
+//    }
+
 
     private fun reduceFileImage(file: File): File {
         return file
@@ -184,5 +238,17 @@ class ApplyFragment : Fragment() {
             value = "3"
         }
         return value
+    }
+
+    private fun customJsonify(string: String): String {
+        var modifiedString = string.substring(1, string.length - 1)
+        val keyValuePairs = modifiedString.split(",").map {
+            val (key, value) = it.split("=")
+            Pair(key.trim(), value.trim())
+        }
+        val jsonified = keyValuePairs.joinToString(",") { (key, value) ->
+            "\"$key\":\"$value\""
+        }
+        return "{$jsonified}"
     }
 }
