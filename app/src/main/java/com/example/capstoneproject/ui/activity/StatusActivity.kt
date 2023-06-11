@@ -2,6 +2,7 @@ package com.example.capstoneproject.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.capstoneproject.R
@@ -14,7 +15,16 @@ class StatusActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityStatusBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = getString(R.string.status)
+    }
 
-
+    override fun onOptionsItemSelected(back: MenuItem): Boolean {
+        when (back.itemId) {
+            android.R.id.home -> {
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(back)
     }
 }
