@@ -15,17 +15,49 @@
         android:id="@+id/navigation_apply"
         android:name="com.example.capstoneproject.ui.fragment.ApplyFragment"
         android:label="@string/title_apply"
-        tools:layout="@layout/fragment_apply" />
+        tools:layout="@layout/fragment_apply" >
+        <action
+            android:id="@+id/action_navigation_apply_to_navigation_upload"
+            app:destination="@id/navigation_upload" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.capstoneproject.ui.fragment.ProfileFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_eligible"
+            app:destination="@id/navigation_eligible" />
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_process"
+            app:destination="@id/navigation_process" />
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_notEligible"
+            app:destination="@id/navigation_notEligible" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_upload"
         android:name="com.example.capstoneproject.ui.fragment.UploadFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_upload" />
+
+    <fragment
+        android:id="@+id/navigation_eligible"
+        android:name="com.example.capstoneproject.ui.fragment.EligibleFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_eligible" />
+
+    <fragment
+        android:id="@+id/navigation_notEligible"
+        android:name="com.example.capstoneproject.ui.fragment.NotEligibleFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_not_eligible" />
+
+    <fragment
+        android:id="@+id/navigation_process"
+        android:name="com.example.capstoneproject.ui.fragment.ProcessFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_process" />
 </navigation>

@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.capstoneproject.R
 import com.example.capstoneproject.data.utils.Preferences
 import com.example.capstoneproject.databinding.FragmentProfileBinding
 import com.example.capstoneproject.ui.activity.FaqActivity
@@ -71,11 +73,10 @@ class ProfileFragment : Fragment() {
             startActivity(i)
         }
 
-//        val lyStatus = binding.lyStatus
-//        lyStatus.setOnClickListener{
-//            val i = Intent(requireContext(), EligibleFragment::class.java)
-//            startActivity(i)
-//        }
+        val lyStatus = binding.lyStatus
+        lyStatus.setOnClickListener{
+            eligible()
+        }
 
         val lyFaq = binding.lyFAQ
         lyFaq.setOnClickListener{
@@ -90,5 +91,20 @@ class ProfileFragment : Fragment() {
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
         activity?.finish()
+    }
+
+    private fun eligible() {
+        val navController = findNavController()
+        navController.navigate(R.id.action_navigation_profile_to_navigation_eligible)
+    }
+
+    private fun notEligible() {
+        val navController = findNavController()
+        navController.navigate(R.id.action_navigation_profile_to_navigation_notEligible)
+    }
+
+    private fun process() {
+        val navController = findNavController()
+        navController.navigate(R.id.action_navigation_profile_to_navigation_process)
     }
 }

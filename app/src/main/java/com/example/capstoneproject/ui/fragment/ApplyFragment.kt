@@ -11,8 +11,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.capstoneproject.R
+import com.example.capstoneproject.data.ML.MLConfig
 import com.example.capstoneproject.data.api.ApiConfig
 import com.example.capstoneproject.data.model.KIPResponse
+import com.example.capstoneproject.data.model.MLRequest
+import com.example.capstoneproject.data.model.MLResponse
+import com.example.capstoneproject.data.utils.reduceFileImage
 import com.example.capstoneproject.data.utils.uriToFile
 import com.example.capstoneproject.databinding.FragmentApplyBinding
 import okhttp3.MediaType.Companion.toMediaType
@@ -122,8 +128,8 @@ class ApplyFragment : Fragment() {
                         }
                         val data = customJsonify("${responseBody!!.data}")
                         val jsonObject = JSONObject(data)
-                        println(responseBody)
-                        println(jsonObject.get("foto_rumah"))
+                        postML(jsonObject)
+                        uploadSuccess()
                     } else {
                         Toast.makeText(requireContext(), response.message(), Toast.LENGTH_SHORT).show()
                         println(response)
@@ -139,52 +145,37 @@ class ApplyFragment : Fragment() {
         }
     }
 
-//    private fun postML() {
-//        if (getFile != null) {
-//            val file = reduceFileImage(getFile as File)
-//
-//            val prestasi = isPunyaPrestasi(binding).toRequestBody("text/plain".toMediaType())
-//            val nilai = "${binding.edNilai.text}".toRequestBody("text/plain".toMediaType())
-//            val salary = "${binding.edSalary.text}".toRequestBody("text/plain".toMediaType())
-//            val statusKip = isPunyaKIP(binding).toRequestBody("text/plain".toMediaType())
-//            val statusRumah = checkStatusRumah(binding).toRequestBody("text/plain".toMediaType())
-//            val requestImageFile = file.asRequestBody("image/jpeg".toMediaType())
-//            val fotoRumah: MultipartBody.Part = MultipartBody.Part.createFormData(
-//                "foto_rumah",
-//                file.name,
-//                requestImageFile
-//            )
-//            val MLService = MLConfig().getMLService()
-//            val uploadDataRequest = MLService.postML(
-//                prestasi,
-//                nilai,
-//                salary,
-//                statusKip,
-//                statusRumah,
-//                fotoRumah
-//            )
-//            uploadDataRequest.enqueue(object : Callback<MLResponse> {
-//                override fun onResponse(
-//                    call: Call<MLResponse>,
-//                    response: Response<MLResponse>
-//                ) {
-//                    if (response.isSuccessful) {
-//                        val responseBody = response.body()
-//                        if (responseBody != null && !responseBody.error) {
-//                            Toast.makeText(requireContext(), responseBody.message, Toast.LENGTH_SHORT).show()
-//                        }
-//                    } else {
-//                        Toast.makeText(requireContext(), response.message(), Toast.LENGTH_SHORT).show()
-//                    }
-//                }
-//                override fun onFailure(call: Call<MLResponse>, t: Throwable) {
-//                    Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
-//                }
-//            })
-//        } else {
-//            Toast.makeText(requireContext(), "Silakan masukkan berkas gambar terlebih dahulu.", Toast.LENGTH_SHORT).show()
-//        }
-//    }
+    private fun postML(data:JSONObject) {
+        val dataUser = MLRequest(
+            prestasi = isPunyaPrestasi(binding).toInt(),
+            nilaiUjian = "${binding.edNilai.text}".toFloat(),
+            gaji_ortu = "${binding.edSalary.text}".toFloat(),
+            statusKip = isPunyaKIP(binding).toInt(),
+            statusRumah = checkStatusRumah(binding).toInt(),
+            fotoRumah = data.getString("foto_rumah")
+        )
+        val mlService = MLConfig().getMLService()
+        val uploadDataRequest = mlService.postML(dataUser)
+        uploadDataRequest.enqueue(object : Callback<MLResponse> {
+            override fun onResponse(
+                call: Call<MLResponse>,
+                response: Response<MLResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val responseBody = response.body()
+                    if (responseBody != null && !responseBody.error) {
+                        Toast.makeText(requireContext(), responseBody.prediction, Toast.LENGTH_SHORT).show()
+                    }
+                    println(responseBody)
+                } else {
+                    Toast.makeText(requireContext(), response.message(), Toast.LENGTH_SHORT).show()
+                }
+            }
+            override fun onFailure(call: Call<MLResponse>, t: Throwable) {
+                Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
 
 
     private fun reduceFileImage(file: File): File {
@@ -250,5 +241,10 @@ class ApplyFragment : Fragment() {
             "\"$key\":\"$value\""
         }
         return "{$jsonified}"
+    }
+
+    private fun uploadSuccess() {
+        val navController = findNavController()
+        navController.navigate(R.id.action_navigation_apply_to_navigation_upload)
     }
 }
