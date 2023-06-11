@@ -27,7 +27,7 @@
             android:layout_height="130dp"
             android:src="@drawable/acc"
             android:layout_gravity="center"
-            />
+            android:contentDescription="@string/image" />
 
         <TextView
             android:id="@+id/dateAcc"

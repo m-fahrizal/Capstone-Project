@@ -26,7 +26,7 @@
             android:layout_height="130dp"
             android:src="@drawable/process"
             android:layout_gravity="center"
-            />
+            android:contentDescription="@string/image" />
 
         <TextView
             android:id="@+id/dateProcess"
