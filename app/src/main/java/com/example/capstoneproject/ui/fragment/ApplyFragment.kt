@@ -4,8 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,8 +12,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.capstoneproject.R
-import com.example.capstoneproject.data.ml.MLConfig
 import com.example.capstoneproject.data.api.ApiConfig
+import com.example.capstoneproject.data.ml.MLConfig
 import com.example.capstoneproject.data.model.KIPResponse
 import com.example.capstoneproject.data.model.MLRequest
 import com.example.capstoneproject.data.model.MLResponse
@@ -25,7 +23,6 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
-import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -38,8 +35,6 @@ import java.io.Writer
 class ApplyFragment : Fragment() {
     private lateinit var binding: FragmentApplyBinding
     private var getFile: File? = null
-    public var isEligble = false
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,11 +50,8 @@ class ApplyFragment : Fragment() {
         val btnApply = binding.btnApply
         binding.selectImage.setOnClickListener { startGallery() }
 
-
         btnApply.setOnClickListener {
             postData()
-//            postML()
-//            it.findNavController().navigate(R.id.UploadFragment)
         }
     }
 
@@ -170,7 +162,6 @@ class ApplyFragment : Fragment() {
                     val responseBody = response.body()
                     if (responseBody != null && !responseBody.error) {
                         Toast.makeText(requireContext(), responseBody.prediction, Toast.LENGTH_SHORT).show()
-                        isEligble = true
                         val json = JSONObject()
                         json.put("Confidence", responseBody.confidence)
                         json.put("Prediction", responseBody.prediction)
@@ -180,7 +171,6 @@ class ApplyFragment : Fragment() {
                         responseFile.appendText(responseBody.prediction.toString())
                     }
                     println(responseBody)
-                    println("ML Response" + responseBody?.confidence)
                 } else {
                     Toast.makeText(requireContext(), response.message(), Toast.LENGTH_SHORT).show()
                 }
@@ -280,9 +270,5 @@ class ApplyFragment : Fragment() {
     private fun uploadSuccess() {
         val navController = findNavController()
         navController.navigate(R.id.action_navigation_apply_to_navigation_upload)
-    }
-
-    companion object {
-        private const val TAG = "ML Response"
     }
 }
