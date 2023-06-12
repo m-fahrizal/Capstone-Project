@@ -16,6 +16,7 @@ import com.example.capstoneproject.databinding.FragmentProfileBinding
 import com.example.capstoneproject.ui.activity.FaqActivity
 import com.example.capstoneproject.ui.activity.GuideActivity
 import com.example.capstoneproject.ui.activity.LoginActivity
+import com.example.capstoneproject.ui.activity.StatusActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
@@ -75,7 +76,7 @@ class ProfileFragment : Fragment() {
 
         val lyStatus = binding.lyStatus
         lyStatus.setOnClickListener{
-            eligible()
+            intentStatus()
         }
 
         val lyFaq = binding.lyFAQ
@@ -91,6 +92,11 @@ class ProfileFragment : Fragment() {
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
         activity?.finish()
+    }
+
+    private fun intentStatus() {
+        val intent = Intent(requireContext(), StatusActivity::class.java)
+        startActivity(intent)
     }
 
     private fun eligible() {

@@ -1,5 +1,6 @@
-package com.example.capstoneproject.data.ML
+package com.example.capstoneproject.data.ml
 
+import com.example.capstoneproject.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -8,14 +9,17 @@ import java.util.concurrent.TimeUnit
 
 class MLConfig {
     fun getMLService(): MLService {
-        val loggingInterceptor =
+        val loggingInterceptor = if(BuildConfig.DEBUG) {
             HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        } else {
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
+        }
         val client = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .readTimeout(90, TimeUnit.SECONDS) // Timeout diatur dalam detik
             .build()
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://asia-southeast2-mykip-387204.cloudfunctions.net/")
+            .baseUrl(BuildConfig.ML_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

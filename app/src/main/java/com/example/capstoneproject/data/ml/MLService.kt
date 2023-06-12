@@ -1,4 +1,4 @@
-package com.example.capstoneproject.data.ML
+package com.example.capstoneproject.data.ml
 
 import com.example.capstoneproject.data.model.MLRequest
 import com.example.capstoneproject.data.model.MLResponse

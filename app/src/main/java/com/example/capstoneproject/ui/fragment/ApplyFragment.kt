@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,28 +14,32 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.capstoneproject.R
-import com.example.capstoneproject.data.ML.MLConfig
+import com.example.capstoneproject.data.ml.MLConfig
 import com.example.capstoneproject.data.api.ApiConfig
 import com.example.capstoneproject.data.model.KIPResponse
 import com.example.capstoneproject.data.model.MLRequest
 import com.example.capstoneproject.data.model.MLResponse
-import com.example.capstoneproject.data.utils.reduceFileImage
 import com.example.capstoneproject.data.utils.uriToFile
 import com.example.capstoneproject.databinding.FragmentApplyBinding
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
+import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.BufferedWriter
 import java.io.File
+import java.io.FileWriter
+import java.io.Writer
 
 class ApplyFragment : Fragment() {
     private lateinit var binding: FragmentApplyBinding
     private var getFile: File? = null
+    public var isEligble = false
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -145,7 +150,7 @@ class ApplyFragment : Fragment() {
         }
     }
 
-    private fun postML(data:JSONObject) {
+    fun postML(data:JSONObject) {
         val dataUser = MLRequest(
             prestasi = isPunyaPrestasi(binding).toInt(),
             nilaiUjian = "${binding.edNilai.text}".toFloat(),
@@ -165,8 +170,17 @@ class ApplyFragment : Fragment() {
                     val responseBody = response.body()
                     if (responseBody != null && !responseBody.error) {
                         Toast.makeText(requireContext(), responseBody.prediction, Toast.LENGTH_SHORT).show()
+                        isEligble = true
+                        val json = JSONObject()
+                        json.put("Confidence", responseBody.confidence)
+                        json.put("Prediction", responseBody.prediction)
+//                        saveJson(json.toString())
+                        val responseFile = File( context?.filesDir.toString() + "mykip.txt")
+                        println(responseFile)
+                        responseFile.appendText(responseBody.prediction.toString())
                     }
                     println(responseBody)
+                    println("ML Response" + responseBody?.confidence)
                 } else {
                     Toast.makeText(requireContext(), response.message(), Toast.LENGTH_SHORT).show()
                 }
@@ -232,7 +246,7 @@ class ApplyFragment : Fragment() {
     }
 
     private fun customJsonify(string: String): String {
-        var modifiedString = string.substring(1, string.length - 1)
+        val modifiedString = string.substring(1, string.length - 1)
         val keyValuePairs = modifiedString.split(",").map {
             val (key, value) = it.split("=")
             Pair(key.trim(), value.trim())
@@ -243,8 +257,32 @@ class ApplyFragment : Fragment() {
         return "{$jsonified}"
     }
 
+    private fun saveJson(s: String) {
+        val output:Writer
+        val file = createFile()
+        output = BufferedWriter(FileWriter(file))
+        output.write(s)
+        output.close()
+        println(file)
+    }
+
+    private fun createFile(): File {
+        val filename = "myJson.json"
+
+        val storageDir = context?.filesDir
+        if (!storageDir?.exists()!!) {
+            storageDir.mkdir()
+        }
+
+        return storageDir
+    }
+
     private fun uploadSuccess() {
         val navController = findNavController()
         navController.navigate(R.id.action_navigation_apply_to_navigation_upload)
+    }
+
+    companion object {
+        private const val TAG = "ML Response"
     }
 }
