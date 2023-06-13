@@ -1,15 +1,14 @@
 package com.example.capstoneproject.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Environment
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import com.example.capstoneproject.R
 import com.example.capstoneproject.databinding.ActivityStatusBinding
+import com.example.capstoneproject.ui.fragment.ApplyFragment.Companion
 import com.example.capstoneproject.ui.fragment.EligibleFragment
 import com.example.capstoneproject.ui.fragment.NotEligibleFragment
 import com.example.capstoneproject.ui.fragment.ProcessFragment
-import java.io.File
 
 class StatusActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStatusBinding
@@ -22,12 +21,7 @@ class StatusActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.status)
 
-        val predictionFile = File(this.filesDir.toString() + "mykip.txt")
-//        println(predictionFile.reader().readLines().get(0))
-
-        val prediction = predictionFile.reader().readLines().get(0)
-
-        when (prediction) {
+        when (Companion.myResponse) {
             "Eligible" -> {
                 intentEligible()
             }

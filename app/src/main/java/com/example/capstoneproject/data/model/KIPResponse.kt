@@ -1,8 +1,6 @@
 package com.example.capstoneproject.data.model
 
 import com.google.gson.annotations.SerializedName
-import okhttp3.MultipartBody
-import java.io.File
 import java.util.*
 
 data class KIPResponse(

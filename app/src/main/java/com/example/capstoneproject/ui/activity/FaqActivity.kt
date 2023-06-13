@@ -1,11 +1,10 @@
 package com.example.capstoneproject.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import com.example.capstoneproject.R
 import com.example.capstoneproject.databinding.ActivityFaqBinding
-import com.example.capstoneproject.databinding.FragmentHomeBinding
 
 class FaqActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFaqBinding

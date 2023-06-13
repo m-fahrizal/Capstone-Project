@@ -2,12 +2,10 @@ package com.example.capstoneproject.ui.activity
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
-import androidx.compose.ui.input.pointer.PointerEventPass
-import androidx.core.content.ContextCompat.startActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.example.capstoneproject.data.model.User
 import com.example.capstoneproject.data.utils.Preferences
 import com.example.capstoneproject.databinding.ActivityLoginBinding

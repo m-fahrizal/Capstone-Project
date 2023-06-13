@@ -1,8 +1,8 @@
 package com.example.capstoneproject.ui.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.capstoneproject.databinding.ActivitySplashScreenBinding
 
 class SplashScreenActivity : AppCompatActivity() {

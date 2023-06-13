@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,10 +28,7 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.BufferedWriter
 import java.io.File
-import java.io.FileWriter
-import java.io.Writer
 
 class ApplyFragment : Fragment() {
     private lateinit var binding: FragmentApplyBinding
@@ -121,7 +119,8 @@ class ApplyFragment : Fragment() {
                     if (response.isSuccessful) {
                         val responseBody = response.body()
                         if (responseBody != null && !responseBody.error) {
-                            Toast.makeText(requireContext(), responseBody.message, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), "Pendaftaran Berhasil!", Toast.LENGTH_SHORT).show()
+                            Log.d(TAG, responseBody.message.toString())
                         }
                         val data = customJsonify("${responseBody!!.data}")
                         val jsonObject = JSONObject(data)
@@ -129,8 +128,6 @@ class ApplyFragment : Fragment() {
                         uploadSuccess()
                     } else {
                         Toast.makeText(requireContext(), response.message(), Toast.LENGTH_SHORT).show()
-                        println(response)
-                        println(response.body())
                     }
                 }
                 override fun onFailure(call: Call<KIPResponse>, t: Throwable) {
@@ -161,14 +158,7 @@ class ApplyFragment : Fragment() {
                 if (response.isSuccessful) {
                     val responseBody = response.body()
                     if (responseBody != null && !responseBody.error) {
-                        Toast.makeText(requireContext(), responseBody.prediction, Toast.LENGTH_SHORT).show()
-                        val json = JSONObject()
-                        json.put("Confidence", responseBody.confidence)
-                        json.put("Prediction", responseBody.prediction)
-//                        saveJson(json.toString())
-                        val responseFile = File( context?.filesDir.toString() + "mykip.txt")
-                        println(responseFile)
-                        responseFile.appendText(responseBody.prediction.toString())
+                        myResponse = responseBody.prediction.toString()
                     }
                     println(responseBody)
                 } else {
@@ -180,7 +170,6 @@ class ApplyFragment : Fragment() {
             }
         })
     }
-
 
     private fun reduceFileImage(file: File): File {
         return file
@@ -247,28 +236,13 @@ class ApplyFragment : Fragment() {
         return "{$jsonified}"
     }
 
-    private fun saveJson(s: String) {
-        val output:Writer
-        val file = createFile()
-        output = BufferedWriter(FileWriter(file))
-        output.write(s)
-        output.close()
-        println(file)
-    }
-
-    private fun createFile(): File {
-        val filename = "myJson.json"
-
-        val storageDir = context?.filesDir
-        if (!storageDir?.exists()!!) {
-            storageDir.mkdir()
-        }
-
-        return storageDir
-    }
-
     private fun uploadSuccess() {
         val navController = findNavController()
         navController.navigate(R.id.action_navigation_apply_to_navigation_upload)
+    }
+
+    companion object {
+        var myResponse: String? = null
+        private val TAG = "Message"
     }
 }
