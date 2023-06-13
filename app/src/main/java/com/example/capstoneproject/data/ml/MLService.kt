@@ -9,6 +9,6 @@ interface MLService {
     @Headers("Content-Type: application/json")
     @POST("api_ml")
     fun postML(
-        @Body data:MLRequest
-    ) : Call<MLResponse>
+        @Body data: MLRequest
+    ): Call<MLResponse>
 }

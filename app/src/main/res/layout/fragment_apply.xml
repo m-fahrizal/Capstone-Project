@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragment.ApplyFragment">
 
     <LinearLayout
@@ -14,542 +14,521 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/apply_kip"
             android:layout_gravity="center"
             android:layout_marginTop="31dp"
             android:fontFamily="@font/opensansbold"
+            android:text="@string/apply_kip"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            />
+            android:textSize="20sp" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/nik"
-            android:fontFamily="@font/opensansbold"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="31dp"
-            android:textSize="14sp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/nik"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/edNIK"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/inputNIK"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
+            android:layout_marginEnd="47dp"
+            android:autofillHints=""
             android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
+            android:fontFamily="@font/opensansreguler"
+            android:hint="@string/inputNIK"
             android:inputType="number"
-            android:autofillHints="" />
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/nisn"
-            android:fontFamily="@font/opensansbold"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/nisn"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/edNISN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/inputNISN"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
+            android:layout_marginEnd="47dp"
+            android:autofillHints=""
             android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
+            android:fontFamily="@font/opensansreguler"
+            android:hint="@string/inputNISN"
             android:inputType="number"
-            android:autofillHints="" />
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/npsn"
-            android:fontFamily="@font/opensansbold"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/npsn"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/edNPSN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/inputNPSN"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
+            android:layout_marginEnd="47dp"
+            android:autofillHints=""
             android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
+            android:fontFamily="@font/opensansreguler"
+            android:hint="@string/inputNPSN"
             android:inputType="number"
-            android:autofillHints="" />
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/fullname"
-            android:fontFamily="@font/opensansbold"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/fullname"
+            android:textColor="@color/black"
+            android:textSize="14dp" />
 
         <EditText
             android:id="@+id/edfullname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/inputFullname"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
+            android:layout_marginEnd="47dp"
+            android:autofillHints=""
             android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
+            android:fontFamily="@font/opensansreguler"
+            android:hint="@string/inputFullname"
             android:inputType="textPersonName"
-            android:autofillHints="" />
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/gender"
-            android:fontFamily="@font/opensansbold"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/gender"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/edGender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/inputGender"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
+            android:layout_marginEnd="47dp"
+            android:autofillHints=""
             android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
+            android:fontFamily="@font/opensansreguler"
+            android:hint="@string/inputGender"
             android:inputType="text"
-            android:autofillHints="" />
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tempatLahir"
-            android:fontFamily="@font/opensansbold"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/tempatLahir"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/edTempatLahir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/inputTempatLahir"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
+            android:layout_marginEnd="47dp"
+            android:autofillHints=""
             android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
+            android:fontFamily="@font/opensansreguler"
+            android:hint="@string/inputTempatLahir"
             android:inputType="text"
-            android:autofillHints="" />
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tglLahir"
-            android:fontFamily="@font/opensansbold"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/tglLahir"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/edTglLahir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/inputTglLahir"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
+            android:layout_marginEnd="47dp"
+            android:autofillHints=""
             android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
+            android:fontFamily="@font/opensansreguler"
+            android:hint="@string/inputTglLahir"
             android:inputType="date"
-            android:autofillHints="" />
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/mom"
-            android:fontFamily="@font/opensansbold"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/mom"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/edMom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/inputMom"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
+            android:layout_marginEnd="47dp"
+            android:autofillHints=""
             android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
+            android:fontFamily="@font/opensansreguler"
+            android:hint="@string/inputMom"
             android:inputType="textPersonName"
-            android:autofillHints="" />
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/address"
-            android:fontFamily="@font/opensansbold"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/address"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/edAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/inputAddress"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
+            android:layout_marginEnd="47dp"
+            android:autofillHints=""
             android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
+            android:fontFamily="@font/opensansreguler"
+            android:hint="@string/inputAddress"
             android:inputType="text"
-            android:autofillHints="" />
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/posCode"
-            android:fontFamily="@font/opensansbold"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/posCode"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/edPosCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/inputPosCode"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
+            android:layout_marginEnd="47dp"
+            android:autofillHints=""
             android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
+            android:fontFamily="@font/opensansreguler"
+            android:hint="@string/inputPosCode"
             android:inputType="number"
-            android:autofillHints="" />
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/religion"
-            android:fontFamily="@font/opensansbold"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/religion"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/edReligion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/inputReligion"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
+            android:layout_marginEnd="47dp"
+            android:autofillHints=""
             android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
+            android:fontFamily="@font/opensansreguler"
+            android:hint="@string/inputReligion"
             android:inputType="text"
-            android:autofillHints="" />
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/salary"
-            android:fontFamily="@font/opensansbold"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/salary"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/edSalary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/inputSalary"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
+            android:layout_marginEnd="47dp"
+            android:autofillHints=""
             android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
+            android:fontFamily="@font/opensansreguler"
+            android:hint="@string/inputSalary"
             android:inputType="number"
-            android:autofillHints="" />
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/asal_sekolah"
-            android:fontFamily="@font/opensansbold"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/asal_sekolah"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/edSchool"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/inputCollege"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
+            android:layout_marginEnd="47dp"
+            android:autofillHints=""
             android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
+            android:fontFamily="@font/opensansreguler"
+            android:hint="@string/inputCollege"
             android:inputType="text"
-            android:autofillHints="" />
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/status_sekolah"
-            android:fontFamily="@font/opensansbold"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/status_sekolah"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/edSchoolStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/inputSchoolStatus"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
+            android:layout_marginEnd="47dp"
+            android:autofillHints=""
             android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
+            android:fontFamily="@font/opensansreguler"
+            android:hint="@string/inputSchoolStatus"
             android:inputType="text"
-            android:autofillHints="" />
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/prestasi"
-            android:fontFamily="@font/opensansbold"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/prestasi"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <RadioGroup
             android:id="@+id/rgPrestasi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="47dp">
+            android:layout_marginStart="47dp"
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/havePrestasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/yes"
-                android:layout_marginEnd="50dp"/>
+                android:layout_marginEnd="50dp"
+                android:text="@string/yes" />
 
             <RadioButton
                 android:id="@+id/noPrestasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/no"/>
+                android:text="@string/no" />
 
         </RadioGroup>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/nilai_ujian"
-            android:fontFamily="@font/opensansbold"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/nilai_ujian"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <EditText
             android:id="@+id/edNilai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/inputNilai"
-            android:fontFamily="@font/opensansreguler"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
             android:layout_marginTop="3dp"
+            android:layout_marginEnd="47dp"
+            android:autofillHints=""
             android:background="@drawable/bg_input"
-            android:textSize="14sp"
-            android:padding="12dp"
+            android:fontFamily="@font/opensansreguler"
+            android:hint="@string/inputNilai"
             android:inputType="numberDecimal"
-            android:autofillHints="" />
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/status_kip"
-            android:fontFamily="@font/opensansbold"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/status_kip"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <RadioGroup
             android:id="@+id/rgStatusKip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="47dp">
+            android:layout_marginStart="47dp"
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/haveKip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/yes"
-                android:layout_marginEnd="50dp"/>
+                android:layout_marginEnd="50dp"
+                android:text="@string/yes" />
 
             <RadioButton
                 android:id="@+id/noKip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/no"/>
+                android:text="@string/no" />
 
         </RadioGroup>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/status_rumah"
-            android:fontFamily="@font/opensansbold"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/status_rumah"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <RadioGroup
             android:id="@+id/rgStatusRumah"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="47dp">
+            android:layout_marginStart="47dp"
+            android:orientation="vertical">
 
             <RadioButton
                 android:id="@+id/sendiri"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/sewa"
-                />
+                android:text="@string/sewa" />
 
             <RadioButton
                 android:id="@+id/sewa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/sendiri"/>
+                android:text="@string/sendiri" />
 
             <RadioButton
                 android:id="@+id/numpang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/numpang"/>
+                android:text="@string/numpang" />
 
         </RadioGroup>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/fotoRumah"
-            android:fontFamily="@font/opensansbold"
-            android:textColor="@color/black"
             android:layout_marginStart="47dp"
             android:layout_marginTop="8dp"
-            android:textSize="14sp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/fotoRumah"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <com.example.capstoneproject.ui.custom.PhotoButton
             android:id="@+id/select_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/upload_file"
             android:layout_marginStart="45dp"
+            android:text="@string/upload_file"
             android:textSize="10sp"
             tools:ignore="SmallSp" />
 
@@ -560,22 +539,21 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="8dp"
-            app:srcCompat="@drawable/ic_place_holder"
-            android:contentDescription="@string/image" />
+            android:contentDescription="@string/image"
+            app:srcCompat="@drawable/ic_place_holder" />
 
         <Button
             android:id="@+id/btn_apply"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="47dp"
-            android:layout_marginEnd="47dp"
             android:layout_marginTop="30dp"
+            android:layout_marginEnd="47dp"
             android:layout_marginBottom="100dp"
-            android:text="@string/apply"
-            android:textSize="20sp"
             android:background="@drawable/button_shape"
             android:fontFamily="@font/opensansextrabold"
-            />
+            android:text="@string/apply"
+            android:textSize="20sp" />
 
     </LinearLayout>
 

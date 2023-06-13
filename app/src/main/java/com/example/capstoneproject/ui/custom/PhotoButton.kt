@@ -12,13 +12,20 @@ import com.example.capstoneproject.R
 class PhotoButton : AppCompatButton {
     private lateinit var photoButton: Drawable
     private var txtColor: Int = 0
+
     constructor(context: Context) : super(context) {
         init()
     }
+
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         init()
     }
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init()
     }
 
@@ -28,6 +35,7 @@ class PhotoButton : AppCompatButton {
         textSize = 10f
         gravity = Gravity.CENTER
     }
+
     private fun init() {
         txtColor = ContextCompat.getColor(context, android.R.color.background_dark)
         photoButton = ContextCompat.getDrawable(context, R.drawable.button_photo) as Drawable

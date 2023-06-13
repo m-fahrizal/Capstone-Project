@@ -1,8 +1,11 @@
 package com.example.capstoneproject.ui.activity
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.capstoneproject.data.model.User
@@ -20,6 +23,7 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
+        playAnimation()
 
         binding.haveAccount.setOnClickListener {
             intentLogin()
@@ -32,7 +36,7 @@ class RegisterActivity : AppCompatActivity() {
             val phoneNumber = binding.edPhone.text.toString()
 
             // validasi username
-            if (username.isEmpty()){
+            if (username.isEmpty()) {
                 binding.edEmail.error = "Nama harus diisi!"
                 binding.edEmail.requestFocus()
                 return@setOnClickListener
@@ -73,15 +77,25 @@ class RegisterActivity : AppCompatActivity() {
                             .setValue(user)
                             .addOnCompleteListener { innerTask ->
                                 if (innerTask.isSuccessful) {
-                                    Toast.makeText(this@RegisterActivity, "Register Successful", Toast.LENGTH_LONG).show()
-                                    val moveLogin = Intent(applicationContext, LoginActivity::class.java)
+                                    Toast.makeText(
+                                        this@RegisterActivity,
+                                        "Register Successful",
+                                        Toast.LENGTH_LONG
+                                    ).show()
+                                    val moveLogin =
+                                        Intent(applicationContext, LoginActivity::class.java)
                                     startActivity(moveLogin)
                                 } else {
-                                    Toast.makeText(this@RegisterActivity, "Register Failed", Toast.LENGTH_LONG).show()
+                                    Toast.makeText(
+                                        this@RegisterActivity,
+                                        "Register Failed",
+                                        Toast.LENGTH_LONG
+                                    ).show()
                                 }
                             }
                     } else {
-                        Toast.makeText(this@RegisterActivity, "Register Failed", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this@RegisterActivity, "Register Failed", Toast.LENGTH_LONG)
+                            .show()
                     }
                 }
         }
@@ -91,5 +105,43 @@ class RegisterActivity : AppCompatActivity() {
     private fun intentLogin() {
         val i = Intent(this, LoginActivity::class.java)
         startActivity(i)
+    }
+
+    private fun playAnimation() {
+        val registerText =
+            ObjectAnimator.ofFloat(binding.registerText, View.ALPHA, 1f).setDuration(300)
+        val unameText = ObjectAnimator.ofFloat(binding.userText, View.ALPHA, 1f).setDuration(300)
+        val unameEditText = ObjectAnimator.ofFloat(binding.layName, View.ALPHA, 1f).setDuration(300)
+        val phoneText = ObjectAnimator.ofFloat(binding.phoneNumber, View.ALPHA, 1f).setDuration(300)
+        val phoneEditText =
+            ObjectAnimator.ofFloat(binding.layPhone, View.ALPHA, 1f).setDuration(300)
+        val emailText = ObjectAnimator.ofFloat(binding.layEmail, View.ALPHA, 1f).setDuration(300)
+        val emailEditText =
+            ObjectAnimator.ofFloat(binding.emailText, View.ALPHA, 1f).setDuration(300)
+        val passText = ObjectAnimator.ofFloat(binding.passText, View.ALPHA, 1f).setDuration(300)
+        val passEditText =
+            ObjectAnimator.ofFloat(binding.edPassword, View.ALPHA, 1f).setDuration(300)
+        val registerButton =
+            ObjectAnimator.ofFloat(binding.buttonRegister, View.ALPHA, 1f).setDuration(300)
+        val haveAccountText =
+            ObjectAnimator.ofFloat(binding.haveAccount, View.ALPHA, 1f).setDuration(300)
+
+        AnimatorSet().apply {
+            playSequentially(
+                registerText,
+                unameText,
+                unameEditText,
+                phoneText,
+                phoneEditText,
+                emailText,
+                emailEditText,
+                passText,
+                passEditText,
+                registerButton,
+                haveAccountText
+            )
+            duration = 400
+            start()
+        }
     }
 }

@@ -12,21 +12,22 @@
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:layout_marginTop="100dp"
+        android:contentDescription="@string/image"
         android:src="@drawable/logosamping"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/image" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/loginText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:alpha="0"
         android:fontFamily="@font/poppinsextra"
         android:text="@string/login"
         android:textColor="@color/red2"
         android:textSize="24sp"
-        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -36,6 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:alpha="0"
         android:fontFamily="@font/poppinsbold"
         android:text="@string/email"
         android:textColor="@color/black"
@@ -49,28 +51,28 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="1dp"
+        android:alpha="0"
         android:background="@drawable/bg_input"
         android:ems="10"
-        android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailText" >
+        app:layout_constraintTop_toBottomOf="@+id/emailText">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:hint="@string/masukkan_email"
             android:drawableStart="@drawable/ic_email"
             android:drawablePadding="15dp"
-            android:paddingRight="13dp"
+            android:hint="@string/masukkan_email"
+            android:inputType="textEmailAddress"
             android:paddingLeft="13dp"
             android:paddingTop="19dp"
+            android:paddingRight="13dp"
             android:paddingBottom="13dp"
-            android:textSize="16sp"
-            />
+            android:textSize="16sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,6 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:alpha="0"
         android:fontFamily="@font/poppinsbold"
         android:text="@string/password"
         android:textColor="@color/black"
@@ -92,29 +95,29 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="1dp"
+        android:alpha="0"
         android:background="@drawable/bg_input"
         android:ems="10"
-        android:layout_marginEnd="1dp"
-        app:passwordToggleEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passText" >
+        app:layout_constraintTop_toBottomOf="@+id/passText"
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:hint="@string/masukkan_password"
             android:drawableStart="@drawable/ic_pass"
             android:drawablePadding="10dp"
-            android:paddingRight="13dp"
+            android:hint="@string/masukkan_password"
+            android:inputType="textPassword"
             android:paddingLeft="13dp"
             android:paddingTop="17dp"
+            android:paddingRight="13dp"
             android:paddingBottom="13dp"
-            android:textSize="16sp"
-            />
+            android:textSize="16sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -122,13 +125,14 @@
         android:id="@+id/buttonLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="45dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="45dp"
-        android:text="@string/login"
-        android:fontFamily="@font/poppinsbold"
-        android:textSize="16sp"
+        android:alpha="0"
         android:background="@drawable/button_shape"
+        android:fontFamily="@font/poppinsbold"
+        android:text="@string/login"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/edPassword"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="@+id/edPassword"
@@ -139,6 +143,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:alpha="0"
         android:fontFamily="@font/poppinsbold"
         android:text="@string/tidak_punya_akun"
         android:textColor="@color/red2"
@@ -147,8 +152,6 @@
         app:layout_constraintStart_toStartOf="@+id/buttonLogin"
         app:layout_constraintTop_toBottomOf="@+id/buttonLogin"
         app:layout_constraintVertical_bias="0.054" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,14 +9,14 @@ import java.util.concurrent.TimeUnit
 
 class MLConfig {
     fun getMLService(): MLService {
-        val loggingInterceptor = if(BuildConfig.DEBUG) {
+        val loggingInterceptor = if (BuildConfig.DEBUG) {
             HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
         } else {
             HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
         }
         val client = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
-            .readTimeout(90, TimeUnit.SECONDS) // Timeout diatur dalam detik
+            .readTimeout(300, TimeUnit.SECONDS) // Timeout diatur dalam detik
             .build()
         val retrofit = Retrofit.Builder()
             .baseUrl(BuildConfig.ML_URL)

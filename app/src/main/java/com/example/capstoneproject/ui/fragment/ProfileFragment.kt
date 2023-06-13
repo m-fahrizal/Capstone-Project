@@ -1,5 +1,6 @@
 package com.example.capstoneproject.ui.fragment
 
+import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -9,8 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.example.capstoneproject.R
+import com.example.capstoneproject.data.model.User
 import com.example.capstoneproject.data.utils.Preferences
 import com.example.capstoneproject.databinding.FragmentProfileBinding
 import com.example.capstoneproject.ui.activity.FaqActivity
@@ -18,23 +18,21 @@ import com.example.capstoneproject.ui.activity.GuideActivity
 import com.example.capstoneproject.ui.activity.LoginActivity
 import com.example.capstoneproject.ui.activity.StatusActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 
 class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
-    private lateinit var greeting: TextView
-    private lateinit var user: FirebaseUser
     private lateinit var reference: DatabaseReference
     private lateinit var userID: String
-    private lateinit var name: String
     private lateinit var context: Context
     private lateinit var pref: Preferences
+    private lateinit var name: String
+    private lateinit var greeting: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
@@ -44,22 +42,31 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         context = requireContext()
         pref = Preferences(context)
+        playAnimation()
 
         val lyLogout = binding.lyButton
-        lyLogout.setOnClickListener{
-            intentLogout()
+        lyLogout.setOnClickListener {
+            logout()
         }
         val user = FirebaseAuth.getInstance().currentUser
+        name = ""
+        greeting = binding.username
 
         if (user != null) {
             userID = user.uid
-            reference = FirebaseDatabase.getInstance("https://capstone-project-3480d-default-rtdb.firebaseio.com/")
-                .getReference("Users")
-                .child(userID)
+            reference =
+                FirebaseDatabase.getInstance(com.example.capstoneproject.BuildConfig.Auth_URL)
+                    .getReference("Users")
+                    .child(userID)
 
             reference.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
+                    val userGreeting = snapshot.getValue(User::class.java)
 
+                    if (userGreeting != null) {
+                        name = userGreeting.name
+                        greeting.text = name
+                    }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -69,24 +76,24 @@ class ProfileFragment : Fragment() {
         }
 
         val lyPanduan = binding.lyPanduan
-        lyPanduan.setOnClickListener{
+        lyPanduan.setOnClickListener {
             val i = Intent(requireContext(), GuideActivity::class.java)
             startActivity(i)
         }
 
         val lyStatus = binding.lyStatus
-        lyStatus.setOnClickListener{
+        lyStatus.setOnClickListener {
             intentStatus()
         }
 
         val lyFaq = binding.lyFAQ
-        lyFaq.setOnClickListener{
+        lyFaq.setOnClickListener {
             val i = Intent(requireContext(), FaqActivity::class.java)
             startActivity(i)
         }
     }
 
-    private fun intentLogout() {
+    private fun logout() {
         pref.prefClear()
         val intent = Intent(requireContext(), LoginActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
@@ -99,18 +106,11 @@ class ProfileFragment : Fragment() {
         startActivity(intent)
     }
 
-    private fun eligible() {
-        val navController = findNavController()
-        navController.navigate(R.id.action_navigation_profile_to_navigation_eligible)
-    }
-
-    private fun notEligible() {
-        val navController = findNavController()
-        navController.navigate(R.id.action_navigation_profile_to_navigation_notEligible)
-    }
-
-    private fun process() {
-        val navController = findNavController()
-        navController.navigate(R.id.action_navigation_profile_to_navigation_process)
+    private fun playAnimation() {
+        ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_X, -30f, 30f).apply {
+            duration = 6000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+        }.start()
     }
 }

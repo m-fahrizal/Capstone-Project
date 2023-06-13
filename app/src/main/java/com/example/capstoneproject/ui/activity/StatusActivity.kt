@@ -13,7 +13,6 @@ import com.example.capstoneproject.ui.fragment.ProcessFragment
 class StatusActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStatusBinding
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStatusBinding.inflate(layoutInflater)
@@ -43,27 +42,39 @@ class StatusActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(back)
     }
 
-    private fun intentEligible(){
+    private fun intentEligible() {
         val fragment = EligibleFragment() // Ganti "MyFragment" dengan nama Fragment Anda
-        val fragmentManager = supportFragmentManager // Gunakan fragmentManager untuk AndroidX, atau supportFragmentManager untuk versi yang lebih lama
+        val fragmentManager =
+            supportFragmentManager // Gunakan fragmentManager untuk AndroidX, atau supportFragmentManager untuk versi yang lebih lama
         val transaction = fragmentManager.beginTransaction()
-        transaction.replace(R.id.status_layout, fragment) // Ganti "R.id.fragment_container" dengan ID container Fragment di layout Anda
+        transaction.replace(
+            R.id.status_layout,
+            fragment
+        ) // Ganti "R.id.fragment_container" dengan ID container Fragment di layout Anda
         transaction.commit()
     }
 
-    private fun intentNotEligible(){
+    private fun intentNotEligible() {
         val fragment = NotEligibleFragment() // Ganti "MyFragment" dengan nama Fragment Anda
-        val fragmentManager = supportFragmentManager // Gunakan fragmentManager untuk AndroidX, atau supportFragmentManager untuk versi yang lebih lama
+        val fragmentManager =
+            supportFragmentManager // Gunakan fragmentManager untuk AndroidX, atau supportFragmentManager untuk versi yang lebih lama
         val transaction = fragmentManager.beginTransaction()
-        transaction.replace(R.id.status_layout, fragment) // Ganti "R.id.fragment_container" dengan ID container Fragment di layout Anda
+        transaction.replace(
+            R.id.status_layout,
+            fragment
+        ) // Ganti "R.id.fragment_container" dengan ID container Fragment di layout Anda
         transaction.commit()
     }
 
-    private fun intentProcess(){
+    private fun intentProcess() {
         val fragment = ProcessFragment() // Ganti "MyFragment" dengan nama Fragment Anda
-        val fragmentManager = supportFragmentManager // Gunakan fragmentManager untuk AndroidX, atau supportFragmentManager untuk versi yang lebih lama
+        val fragmentManager =
+            supportFragmentManager // Gunakan fragmentManager untuk AndroidX, atau supportFragmentManager untuk versi yang lebih lama
         val transaction = fragmentManager.beginTransaction()
-        transaction.replace(R.id.status_layout, fragment) // Ganti "R.id.fragment_container" dengan ID container Fragment di layout Anda
+        transaction.replace(
+            R.id.status_layout,
+            fragment
+        ) // Ganti "R.id.fragment_container" dengan ID container Fragment di layout Anda
         transaction.commit()
     }
 }

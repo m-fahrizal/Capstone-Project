@@ -10,10 +10,10 @@
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/container_upload"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/container_upload"
+        android:orientation="vertical"
         android:paddingTop="70dp"
         android:paddingBottom="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,53 +24,48 @@
         <ImageView
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:src="@drawable/upload"
             android:layout_gravity="center"
-            />
+            android:src="@drawable/upload" />
 
         <TextView
             android:id="@+id/dateUpload"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="@tools:sample/date/ddmmyy"
-            android:textSize="14sp"
             android:layout_gravity="center"
+            android:layout_marginTop="18dp"
             android:fontFamily="@font/opensansmedium"
             android:textColor="@color/black"
-            android:layout_marginTop="18dp"
-            />
+            android:textSize="14sp"
+            tools:text="@tools:sample/date/ddmmyy" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/tosca"
-            android:textSize="18sp"
-            android:text="@string/pengajuan_diproses"
-            android:fontFamily="@font/opensansbold"
             android:layout_gravity="center"
             android:layout_marginTop="18dp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/pengajuan_diproses"
+            android:textColor="@color/tosca"
+            android:textSize="18sp" />
 
         <LinearLayout
             android:id="@+id/ly_lihatStatus"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
-            >
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/lihat_status"
                 android:background="@drawable/green_shape"
+                android:fontFamily="@font/opensansbold"
                 android:gravity="center"
                 android:padding="7dp"
-                android:textSize="16sp"
-                android:fontFamily="@font/opensansbold"
+                android:text="@string/lihat_status"
                 android:textColor="@color/white"
-                />
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -78,22 +73,20 @@
             android:id="@+id/ly_backHome"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            >
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/kembali"
                 android:background="@drawable/profile_shape"
+                android:fontFamily="@font/opensansbold"
                 android:gravity="center"
                 android:padding="7dp"
-                android:textSize="16sp"
-                android:fontFamily="@font/opensansbold"
+                android:text="@string/kembali"
                 android:textColor="@color/black"
-                />
+                android:textSize="16sp" />
 
         </LinearLayout>
 

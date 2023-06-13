@@ -10,10 +10,10 @@
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="454dp"
-        android:orientation="vertical"
-        android:background="@drawable/container_process"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/container_process"
+        android:orientation="vertical"
         android:paddingTop="70dp"
         android:paddingBottom="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,46 +24,43 @@
         <ImageView
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:src="@drawable/process"
             android:layout_gravity="center"
-            android:contentDescription="@string/image" />
+            android:contentDescription="@string/image"
+            android:src="@drawable/process" />
 
         <TextView
             android:id="@+id/dateProcess"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="@tools:sample/date/ddmmyy"
-            android:textSize="14sp"
             android:layout_gravity="center"
+            android:layout_marginTop="18dp"
             android:fontFamily="@font/opensansmedium"
             android:textColor="@color/black"
-            android:layout_marginTop="18dp"
-            />
+            android:textSize="14sp"
+            tools:text="@tools:sample/date/ddmmyy" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/brown"
-            android:textSize="18sp"
-            android:text="@string/pengajuan_dalam_proses"
-            android:fontFamily="@font/opensansbold"
             android:layout_gravity="center"
             android:layout_marginTop="18dp"
-            />
+            android:fontFamily="@font/opensansbold"
+            android:text="@string/pengajuan_dalam_proses"
+            android:textColor="@color/brown"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/process"
             android:layout_marginStart="28dp"
-            android:layout_marginEnd="28dp"
             android:layout_marginTop="25dp"
+            android:layout_marginEnd="28dp"
             android:fontFamily="@font/opensansbold"
-            android:textSize="16sp"
-            android:textColor="@color/black"
             android:gravity="center"
             android:justificationMode="inter_word"
-            />
+            android:text="@string/process"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
 
     </LinearLayout>

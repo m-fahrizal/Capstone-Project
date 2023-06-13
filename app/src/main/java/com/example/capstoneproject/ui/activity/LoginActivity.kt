@@ -1,9 +1,12 @@
 package com.example.capstoneproject.ui.activity
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.capstoneproject.data.model.User
@@ -19,7 +22,6 @@ class LoginActivity : AppCompatActivity() {
     private val database: DatabaseReference = FirebaseDatabase.getInstance().reference
     private lateinit var context: Context
     private lateinit var pref: Preferences
-    private lateinit var name: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +31,7 @@ class LoginActivity : AppCompatActivity() {
         context = this
         pref = Preferences(context)
         auth = FirebaseAuth.getInstance()
+        playAnimation()
 
 
         binding.newAccount.setOnClickListener {
@@ -57,17 +60,16 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             } else {
                 val query: Query = database.child("Users").orderByChild("email").equalTo(email)
-                query.addListenerForSingleValueEvent(object : ValueEventListener{
+                query.addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if (snapshot.exists()) {
                             for (item in snapshot.children) {
                                 val user = item.getValue<User>()
                                 if (user != null) {
-                                    if (user.password.equals(password)) {
+                                    if (user.password == password) {
                                         pref.prefStatus = true
                                         pref.prefName = user.name
-                                        var intent: Intent? = null
-                                        intent = if (user.name.equals(user.name)) {
+                                        val intent = if (user.name.equals(user.name)) {
                                             Intent(context, MainActivity::class.java)
                                         } else {
                                             Intent(context, MainActivity::class.java)
@@ -75,12 +77,17 @@ class LoginActivity : AppCompatActivity() {
                                         startActivity(intent)
                                         finish()
                                     } else {
-                                        Toast.makeText(context, "Kata sandi belum sesuai!", Toast.LENGTH_LONG).show()
+                                        Toast.makeText(
+                                            context,
+                                            "Kata sandi belum sesuai!",
+                                            Toast.LENGTH_LONG
+                                        ).show()
                                     }
                                 }
                             }
                         } else {
-                            Toast.makeText(context, "Email belum terdaftar", Toast.LENGTH_LONG).show()
+                            Toast.makeText(context, "Email belum terdaftar", Toast.LENGTH_LONG)
+                                .show()
                         }
                     }
 
@@ -96,14 +103,47 @@ class LoginActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if (pref.prefStatus) {
-            var intent: Intent? = null
-            intent = if (pref.prefName.equals(pref.prefName)) {
+            val intent = if (pref.prefName.equals(pref.prefName)) {
                 Intent(context, MainActivity::class.java)
             } else {
                 Intent(context, MainActivity::class.java)
             }
             startActivity(intent)
             finish()
+        }
+    }
+
+    private fun playAnimation() {
+        ObjectAnimator.ofFloat(binding.imageView, View.TRANSLATION_X, -30f, 30f).apply {
+            duration = 6000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+        }.start()
+
+        val loginText = ObjectAnimator.ofFloat(binding.loginText, View.ALPHA, 1f).setDuration(300)
+        val emailText = ObjectAnimator.ofFloat(binding.emailText, View.ALPHA, 1f).setDuration(300)
+        val emailEditText =
+            ObjectAnimator.ofFloat(binding.layEmail, View.ALPHA, 1f).setDuration(300)
+        val passText = ObjectAnimator.ofFloat(binding.passText, View.ALPHA, 1f).setDuration(300)
+        val passEditText =
+            ObjectAnimator.ofFloat(binding.edPassword, View.ALPHA, 1f).setDuration(300)
+        val loginButton =
+            ObjectAnimator.ofFloat(binding.buttonLogin, View.ALPHA, 1f).setDuration(300)
+        val newAccountText =
+            ObjectAnimator.ofFloat(binding.newAccount, View.ALPHA, 1f).setDuration(300)
+
+        AnimatorSet().apply {
+            playSequentially(
+                loginText,
+                emailText,
+                emailEditText,
+                passText,
+                passEditText,
+                loginButton,
+                newAccountText
+            )
+            duration = 400
+            start()
         }
     }
 

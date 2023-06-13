@@ -70,7 +70,8 @@ class ApplyFragment : Fragment() {
             val npsn = "${binding.edNPSN.text}".toRequestBody("text/plain".toMediaType())
             val name = "${binding.edfullname.text}".toRequestBody("text/plain".toMediaType())
             val gender = "${binding.edGender.text}".toRequestBody("text/plain".toMediaType())
-            val tempatLahir = "${binding.edTempatLahir.text}".toRequestBody("text/plain".toMediaType())
+            val tempatLahir =
+                "${binding.edTempatLahir.text}".toRequestBody("text/plain".toMediaType())
             val tglLahir = "${binding.edTglLahir.text}".toRequestBody("text/plain".toMediaType())
             val mom = "${binding.edMom.text}".toRequestBody("text/plain".toMediaType())
             val address = "${binding.edAddress.text}".toRequestBody("text/plain".toMediaType())
@@ -78,7 +79,8 @@ class ApplyFragment : Fragment() {
             val religion = "${binding.edReligion.text}".toRequestBody("text/plain".toMediaType())
             val salary = "${binding.edSalary.text}".toRequestBody("text/plain".toMediaType())
             val school = "${binding.edSchool.text}".toRequestBody("text/plain".toMediaType())
-            val schoolStatus = "${binding.edSchoolStatus.text}".toRequestBody("text/plain".toMediaType())
+            val schoolStatus =
+                "${binding.edSchoolStatus.text}".toRequestBody("text/plain".toMediaType())
             val prestasi = isPunyaPrestasi(binding).toRequestBody("text/plain".toMediaType())
             val nilai = "${binding.edNilai.text}".toRequestBody("text/plain".toMediaType())
             val statusKip = isPunyaKIP(binding).toRequestBody("text/plain".toMediaType())
@@ -119,7 +121,11 @@ class ApplyFragment : Fragment() {
                     if (response.isSuccessful) {
                         val responseBody = response.body()
                         if (responseBody != null && !responseBody.error) {
-                            Toast.makeText(requireContext(), "Pendaftaran Berhasil!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                requireContext(),
+                                "Pendaftaran Berhasil!",
+                                Toast.LENGTH_SHORT
+                            ).show()
                             Log.d(TAG, responseBody.message.toString())
                         }
                         val data = customJsonify("${responseBody!!.data}")
@@ -127,19 +133,25 @@ class ApplyFragment : Fragment() {
                         postML(jsonObject)
                         uploadSuccess()
                     } else {
-                        Toast.makeText(requireContext(), response.message(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), response.message(), Toast.LENGTH_SHORT)
+                            .show()
                     }
                 }
+
                 override fun onFailure(call: Call<KIPResponse>, t: Throwable) {
                     Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
                 }
             })
         } else {
-            Toast.makeText(requireContext(), "Silakan masukkan berkas gambar terlebih dahulu.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                requireContext(),
+                "Silakan masukkan berkas gambar terlebih dahulu.",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
-    fun postML(data:JSONObject) {
+    fun postML(data: JSONObject) {
         val dataUser = MLRequest(
             prestasi = isPunyaPrestasi(binding).toInt(),
             nilaiUjian = "${binding.edNilai.text}".toFloat(),
@@ -159,12 +171,14 @@ class ApplyFragment : Fragment() {
                     val responseBody = response.body()
                     if (responseBody != null && !responseBody.error) {
                         myResponse = responseBody.prediction.toString()
+                        Toast.makeText(requireContext(), "Silakan lihat status di profile!", Toast.LENGTH_SHORT).show()
                     }
                     println(responseBody)
                 } else {
                     Toast.makeText(requireContext(), response.message(), Toast.LENGTH_SHORT).show()
                 }
             }
+
             override fun onFailure(call: Call<MLResponse>, t: Throwable) {
                 Toast.makeText(requireContext(), t.message, Toast.LENGTH_SHORT).show()
             }
@@ -188,37 +202,37 @@ class ApplyFragment : Fragment() {
         }
     }
 
-    private fun isPunyaPrestasi(binding:FragmentApplyBinding): String {
+    private fun isPunyaPrestasi(binding: FragmentApplyBinding): String {
         var value = ""
-        if (binding.havePrestasi.isChecked){
+        if (binding.havePrestasi.isChecked) {
             value = "1"
         }
-        if(binding.noPrestasi.isChecked){
+        if (binding.noPrestasi.isChecked) {
             value = "0"
         }
         return value
     }
 
-    private fun isPunyaKIP(binding:FragmentApplyBinding): String {
+    private fun isPunyaKIP(binding: FragmentApplyBinding): String {
         var value = ""
-        if (binding.haveKip.isChecked){
+        if (binding.haveKip.isChecked) {
             value = "1"
         }
-        if(binding.noKip.isChecked){
+        if (binding.noKip.isChecked) {
             value = "0"
         }
         return value
     }
 
-    private fun checkStatusRumah(binding:FragmentApplyBinding): String {
+    private fun checkStatusRumah(binding: FragmentApplyBinding): String {
         var value = ""
-        if (binding.sewa.isChecked){
+        if (binding.sewa.isChecked) {
             value = "1"
         }
-        if(binding.sendiri.isChecked){
+        if (binding.sendiri.isChecked) {
             value = "2"
         }
-        if(binding.numpang.isChecked){
+        if (binding.numpang.isChecked) {
             value = "3"
         }
         return value
@@ -243,6 +257,6 @@ class ApplyFragment : Fragment() {
 
     companion object {
         var myResponse: String? = null
-        private val TAG = "Message"
+        private const val TAG = "Message"
     }
 }

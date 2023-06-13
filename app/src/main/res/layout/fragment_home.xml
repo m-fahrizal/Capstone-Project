@@ -16,31 +16,29 @@
             android:id="@+id/greetings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="@tools:sample/first_names"
-            android:textSize="20sp"
             android:fontFamily="@font/opensansextrabold"
             android:textColor="@color/red2"
-            />
-        
+            android:textSize="20sp"
+            tools:text="@tools:sample/first_names" />
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/kip"
-            android:contentDescription="@string/image" />
+            android:contentDescription="@string/image"
+            android:src="@drawable/kip" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/pengertian"
-            android:textSize="14sp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:justificationMode="inter_word"
             android:fontFamily="@font/opensansreguler"
+            android:justificationMode="inter_word"
+            android:text="@string/pengertian"
             android:textColor="@color/black"
-            />
+            android:textSize="14sp" />
 
         <com.skydoves.expandablelayout.ExpandableLayout
             android:id="@+id/exProsedur"
@@ -51,10 +49,9 @@
             app:expandable_parentLayout="@layout/prosedur_parent"
             app:expandable_secondLayout="@layout/prosedur_second"
             app:expandable_spinner_animate="true"
-            app:expandable_spinner_gravity="end"
             app:expandable_spinner_color="@color/black"
-            app:expandable_spinner_size="32dp"
-            />
+            app:expandable_spinner_gravity="end"
+            app:expandable_spinner_size="32dp" />
 
         <com.skydoves.expandablelayout.ExpandableLayout
             android:id="@+id/exSyarat"
@@ -65,11 +62,10 @@
             app:expandable_parentLayout="@layout/syarat_parent"
             app:expandable_secondLayout="@layout/syarat_second"
             app:expandable_spinner_animate="true"
+            app:expandable_spinner_color="@color/black"
             app:expandable_spinner_gravity="end"
             app:expandable_spinner_margin="14dp"
-            app:expandable_spinner_color="@color/black"
-            app:expandable_spinner_size="32dp"
-            />
+            app:expandable_spinner_size="32dp" />
 
         <com.skydoves.expandablelayout.ExpandableLayout
             android:id="@+id/exKeunggulan"
@@ -80,11 +76,10 @@
             app:expandable_parentLayout="@layout/keunggulan_parent"
             app:expandable_secondLayout="@layout/keunggulan_second"
             app:expandable_spinner_animate="true"
+            app:expandable_spinner_color="@color/black"
             app:expandable_spinner_gravity="end"
             app:expandable_spinner_margin="14dp"
-            app:expandable_spinner_color="@color/black"
-            app:expandable_spinner_size="32dp"
-            />
+            app:expandable_spinner_size="32dp" />
 
     </LinearLayout>
 

@@ -14,8 +14,6 @@
     <string name="title_home">Home</string>
     <string name="title_apply">Apply</string>
     <string name="title_profile">Profile</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="pengertian"><b>Kartu Indonesia Pintar (KIP-Kuliah)</b> adalah bantuan pendidikan yang diberikan pemerintah kepada mahasiswa yang berasal dari keluarga kurang mampu. Bantuan ini berlaku bagi mereka yang lolos melalui jalur SNBP, SNBT, dan Ujian Mandiri di perguruan tinggi negeri maupun perguruan tinggi swasta.</string>
     <string name="prosedur">Tahapan Pendaftaran KIP Kuliah:\n1. Siswa dapat langsung melakukan pendaftaran secara mandiri di web Sistem KIP Kuliah pada laman kip-kuliah.kemdikbud.go.id atau melalui KIP Kuliah mobile apps*;\n2. Pada saat pendaftaran, siswa memasukkan NIK, NISN, NPSN dan alamat email yang valid dan aktif;\n3. Sistem KIP Kuliah selanjutnya akan melakukan validasi NIK, NISN dan NPSN serta kelayakan mendapatkan KIP Kuliah**;\n4. Jika proses validasi berhasil, Sistem KIP Kuliah selanjutnya akan mengirimkan Nomor Pendaftaran dan Kode Akses ke alamat email yang didaftarkan;\n5. Siswa menyelesaikan proses pendaftaran KIP Kuliah dan memilih jalur seleksi yang akan diikuti (SNMPTN/SBMPTN/SMPN/UMPN/Mandiri);\n6. Selanjutnya, Siswa menyelesaikan proses pendaftaran di portal atau sistem informasi seleksi nasional masuk perguruan tinggi sesuai jalur seleksi yang dipilih. Proses sinkronisasi dengan sistem tersebut akan dilakukan kemudian dengan skema host-to-host.\n7. Bagi calon penerima KIP Kuliah yang telah dinyatakan diterima di Perguruan Tinggi, dapat dilakukan verifikasi lebih lanjut oleh Perguruan Tinggi sebelum diusulkan sebagai calon mahasiswa penerima KIP Kuliah.
@@ -97,8 +95,8 @@
     <string name="faq1_parent">Apakah KIP-Kuliah Gratis ?</string>
     <string name="faq2_parent">Apakah Mahasiswa Aktif Boleh Mendaftar ?</string>
     <string name="faq3_parent">Jadwal Pendaftaran KIP</string>
-    <string name="faq4_parent">Jika Mendaftar KIP dan \nternyata setelah \ndiverifikasi saya tidak layak. Apa yang akan terjadi?</string>
-    <string name="faq5_parent">Saya Penerima KIP, apakah boleh mendaftar beasiswa selain KIP-Kuliah?</string>
+    <string name="faq4_parent">Jika Mendaftar KIP dan \nternyata setelah \ndiverifikasi saya tidak layak. \nApa yang akan terjadi?</string>
+    <string name="faq5_parent">Saya Penerima KIP, apakah boleh mendaftar beasiswa\n selain KIP-Kuliah?</string>
     <string name="faq1_second">KIP-Kuliah memberikan pembiayaan sebagai berikut: \n1. Pendaftaran KIP-Kuliah tidak dikenakan biaya.\n2. Bebas biaya pendidikan yang dibayarkan kepada perguruan tinggi \n3. Subsidi biaya hidup sebesar Rp700.000 / bulan yang disesuaikan dengan pertimbangan biaya hidup di masing masing wilayah Jika ada pihak pihak yang memungut biaya pada calon pendaftar, pendaftar, atau penerima KIP-Kuliah di luar ketentuan tersebut bisa melapor ke <b>Helpdesk KIP Kuliah.</b> </string>
     <string name="faq2_second">Saat ini KIP-Kuliah dikhususkan untuk calon mahasiswa/lulusan SMA sederajat tahun berjalan atau lulus dua tahun sebelunya.</string>
     <string name="faq3_second">Jadwal kegiatan KIP-Kuliah tahun 2022 dapat dilihat pada laman berikut : https://kip-kuliah.kemdikbud.go.id <i>Perlu kami sampaikan bahwa jadwal ini dapat berubah sewaktu-waktu dan jika terdapat perubahan akan diumumkan melalui laman ini.</i> </string>

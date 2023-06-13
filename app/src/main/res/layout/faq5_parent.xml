@@ -7,22 +7,20 @@
         android:id="@+id/textFaq5"
         android:layout_width="wrap_content"
         android:layout_height="90dp"
-        android:text="@string/faq5_parent"
-        android:fontFamily="@font/opensansbold"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
-        />
+        android:fontFamily="@font/opensansbold"
+        android:text="@string/faq5_parent"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
 
     <View
-        android:layout_below="@id/textFaq5"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/black"
+        android:layout_below="@id/textFaq5"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        />
+        android:background="@color/black" />
 
 </RelativeLayout>

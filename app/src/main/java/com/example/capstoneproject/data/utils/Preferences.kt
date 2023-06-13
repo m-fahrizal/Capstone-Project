@@ -4,23 +4,23 @@ import android.content.Context
 import android.content.SharedPreferences
 
 class Preferences(context: Context) {
-    private val TAG_STATUS = "status"
-    private val TAG_LEVEL = "level"
-    private val TAG_APP = "app"
+    private val tagStatus = "status"
+    private val tagLevel = "level"
+    private val tagApp = "app"
 
     private val pref: SharedPreferences =
-        context.getSharedPreferences(TAG_APP, Context.MODE_PRIVATE)
+        context.getSharedPreferences(tagApp, Context.MODE_PRIVATE)
 
     var prefStatus: Boolean
-        get() = pref.getBoolean(TAG_STATUS, false)
-        set(value) = pref.edit().putBoolean(TAG_STATUS, value).apply()
+        get() = pref.getBoolean(tagStatus, false)
+        set(value) = pref.edit().putBoolean(tagStatus, value).apply()
 
     var prefName: String?
-        get() = pref.getString(TAG_LEVEL, "")
-        set(value) = pref.edit().putString(TAG_LEVEL, value).apply()
+        get() = pref.getString(tagLevel, "")
+        set(value) = pref.edit().putString(tagLevel, value).apply()
 
-    fun prefClear(){
-        pref.edit().remove(TAG_STATUS).apply()
-        pref.edit().remove(TAG_LEVEL).apply()
+    fun prefClear() {
+        pref.edit().remove(tagStatus).apply()
+        pref.edit().remove(tagLevel).apply()
     }
 }

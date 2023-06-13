@@ -11,13 +11,11 @@ import androidx.fragment.app.Fragment
 import com.example.capstoneproject.data.model.User
 import com.example.capstoneproject.databinding.FragmentHomeBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var greeting: TextView
-    private lateinit var user: FirebaseUser
     private lateinit var reference: DatabaseReference
     private lateinit var userID: String
     private lateinit var name: String
@@ -26,7 +24,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -39,9 +37,10 @@ class HomeFragment : Fragment() {
 
         if (user != null) {
             userID = user.uid
-            reference = FirebaseDatabase.getInstance("https://capstone-project-3480d-default-rtdb.firebaseio.com/")
-                .getReference("Users")
-                .child(userID)
+            reference =
+                FirebaseDatabase.getInstance(com.example.capstoneproject.BuildConfig.Auth_URL)
+                    .getReference("Users")
+                    .child(userID)
 
             greeting = binding.greetings
             reference.addValueEventListener(object : ValueEventListener {
@@ -60,7 +59,6 @@ class HomeFragment : Fragment() {
                 }
             })
         }
-
 
 
         var g = 0
@@ -96,18 +94,5 @@ class HomeFragment : Fragment() {
                 exKeunggulan.collapse()
             }
         }
-    }
-    private fun saveSession(userId: String, username: String) {
-        val user = HashMap<String, Any>()
-        user["userId"] = userId
-        user["username"] = username
-
-        reference.child(userId).setValue(user)
-            .addOnSuccessListener {
-                Toast.makeText(requireContext(),"Data berhasil disimpan", Toast.LENGTH_SHORT).show()
-            }
-            .addOnFailureListener {
-                Toast.makeText(requireContext(),"Data berhasil disimpan", Toast.LENGTH_SHORT).show()
-            }
     }
 }

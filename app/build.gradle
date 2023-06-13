@@ -29,10 +29,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField("String", "DB_URL", '"https://backend-dot-mykip-387204.et.r.appspot.com"')
             buildConfigField("String", "ML_URL", '"https://asia-southeast2-mykip-387204.cloudfunctions.net/"')
+            buildConfigField("String", "Auth_URL", '"https://capstone-project-3480d-default-rtdb.firebaseio.com/"')
         }
         debug {
             buildConfigField("String", "DB_URL", '"https://backend-dot-mykip-387204.et.r.appspot.com"')
             buildConfigField("String", "ML_URL", '"https://asia-southeast2-mykip-387204.cloudfunctions.net/"')
+            buildConfigField("String", "Auth_URL", '"https://capstone-project-3480d-default-rtdb.firebaseio.com/"')
         }
     }
     compileOptions {
