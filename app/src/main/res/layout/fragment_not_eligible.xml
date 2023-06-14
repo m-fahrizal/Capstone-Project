@@ -29,17 +29,6 @@
             android:src="@drawable/reject" />
 
         <TextView
-            android:id="@+id/dateReject"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="18dp"
-            android:fontFamily="@font/opensansmedium"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            tools:text="@tools:sample/date/ddmmyy" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

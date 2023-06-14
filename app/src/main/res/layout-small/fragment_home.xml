@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="33dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/greetings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensansextrabold"
+            android:textColor="@color/red2"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@tools:sample/first_names" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/image"
+            android:src="@drawable/kip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/greetings" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/opensansreguler"
+            android:justificationMode="inter_word"
+            android:text="@string/pengertian"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <com.skydoves.expandablelayout.ExpandableLayout
+            android:id="@+id/exProsedur"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:expandable_duration="300"
+            app:expandable_isExpanded="false"
+            app:expandable_parentLayout="@layout/prosedur_parent"
+            app:expandable_secondLayout="@layout/prosedur_second"
+            app:expandable_spinner_animate="true"
+            app:expandable_spinner_color="@color/black"
+            app:expandable_spinner_gravity="end"
+            app:expandable_spinner_size="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <com.skydoves.expandablelayout.ExpandableLayout
+            android:id="@+id/exSyarat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:expandable_duration="300"
+            app:expandable_isExpanded="false"
+            app:expandable_parentLayout="@layout/syarat_parent"
+            app:expandable_secondLayout="@layout/syarat_second"
+            app:expandable_spinner_animate="true"
+            app:expandable_spinner_color="@color/black"
+            app:expandable_spinner_gravity="end"
+            app:expandable_spinner_margin="14dp"
+            app:expandable_spinner_size="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/exProsedur" />
+
+        <com.skydoves.expandablelayout.ExpandableLayout
+            android:id="@+id/exKeunggulan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:expandable_duration="300"
+            app:expandable_isExpanded="false"
+            app:expandable_parentLayout="@layout/keunggulan_parent"
+            app:expandable_secondLayout="@layout/keunggulan_second"
+            app:expandable_spinner_animate="true"
+            app:expandable_spinner_color="@color/black"
+            app:expandable_spinner_gravity="end"
+            app:expandable_spinner_margin="14dp"
+            app:expandable_spinner_size="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/exSyarat" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

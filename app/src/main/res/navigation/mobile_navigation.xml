@@ -41,7 +41,14 @@
         android:id="@+id/navigation_upload"
         android:name="com.example.capstoneproject.ui.fragment.UploadFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/fragment_upload" />
+        tools:layout="@layout/fragment_upload" >
+        <action
+            android:id="@+id/action_navigation_upload_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_upload_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_eligible"

@@ -131,9 +131,8 @@ class ApplyFragment : Fragment() {
                         val data = customJsonify("${responseBody!!.data}")
                         val jsonObject = JSONObject(data)
                         postML(jsonObject)
-                        uploadSuccess()
                     } else {
-                        Toast.makeText(requireContext(), response.message(), Toast.LENGTH_SHORT)
+                        Toast.makeText(requireContext(), "Pendaftaran Gagal!", Toast.LENGTH_SHORT)
                             .show()
                     }
                 }
@@ -171,11 +170,16 @@ class ApplyFragment : Fragment() {
                     val responseBody = response.body()
                     if (responseBody != null && !responseBody.error) {
                         myResponse = responseBody.prediction.toString()
-                        Toast.makeText(requireContext(), "Silakan lihat status di profile!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            requireContext(),
+                            "Silakan lihat status di profile!",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
+                    uploadSuccess()
                     println(responseBody)
                 } else {
-                    Toast.makeText(requireContext(), response.message(), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Proses Gagal!", Toast.LENGTH_SHORT).show()
                 }
             }
 

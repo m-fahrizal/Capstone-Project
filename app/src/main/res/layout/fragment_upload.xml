@@ -25,18 +25,8 @@
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_gravity="center"
-            android:src="@drawable/upload" />
-
-        <TextView
-            android:id="@+id/dateUpload"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="18dp"
-            android:fontFamily="@font/opensansmedium"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            tools:text="@tools:sample/date/ddmmyy" />
+            android:src="@drawable/upload"
+            android:contentDescription="@string/image" />
 
         <TextView
             android:layout_width="wrap_content"
